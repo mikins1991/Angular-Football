@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+
+import { PAGES } from './shared/left-panel.config';
 
 @Component({
   selector: 'left-panel-component',
@@ -7,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LeftPanelComponent implements OnInit {
   constructor() {}
+
+  pages = PAGES;
 
   ngOnInit(): void {}
 }

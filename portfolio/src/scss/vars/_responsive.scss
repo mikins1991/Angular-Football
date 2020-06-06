@@ -1,0 +1,22 @@
+$screen-contained-left-panel-min-width: 1530px;
+
+$ipad-pro-max-device-width: 1112px;
+$ipad-pro-min-device-width: 834px;
+$ipad-max-device-width: 1024px;
+$ipad-min-device-width: 768px;
+
+$laptop-min-width: 1224px;
+$large-screen-min-width: 1824px;
+$wqhd-screen-min-width: 2560px;
+$ultra-hd-screen-min-width: 3840px;
+$screen-5k-min-width: 5120px;
+
+$responsive-strategy-1-height: 768px;
+
+$responsive-strategy-2-height: 900px;
+$responsive-strategy-2-width: $ipad-min-device-width;
+
+$responsive-strategy-3-height: 1000px;
+$responsive-strategy-3-width: $laptop-min-width;
+
+$responsive-strategy-4-width: $laptop-min-width;

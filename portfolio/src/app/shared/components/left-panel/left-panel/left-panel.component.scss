@@ -1,0 +1,118 @@
+@import "../../../../../scss/vars/colors";
+@import "../../../../../scss/vars/fonts";
+$light-gray: #b0bec5;
+
+:host {
+  .left-part-content {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+
+    .logo-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+      padding: 0 2rem;
+      justify-content: center;
+
+      .logo {
+        cursor: pointer;
+        width: 100%;
+      }
+    }
+
+    .menu-items {
+      display: flex;
+      justify-content: center;
+      margin-top: 4rem;
+
+      .menu-items-group {
+        margin-bottom: 1rem;
+        width: 100%;
+
+        .menu-items-group-title-wrapper {
+          background-color: rgba(90, 122, 142, 0.1);
+          padding: 1rem;
+
+          .menu-items-group-title {
+            padding-left: 0.5rem;
+            pointer-events: none;
+
+            span {
+              color: $left-panel-primery;
+              font-weight: bold;
+            }
+          }
+        }
+
+        .menu-items-group-content:not(:last-child) {
+          border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .menu-items-group-content {
+          display: flex;
+          flex-direction: column;
+          padding: 1rem 0.5rem;
+
+          .left-panel-menu-item {
+            cursor: default;
+            display: flex;
+            padding: 0 0 0 2rem;
+
+            &:hover {
+              background: transparent;
+            }
+
+            .user-info {
+              align-items: center;
+              display: flex;
+              padding-right: 0.5rem;
+            }
+
+            button.logout-button {
+              margin-left: auto;
+              padding-right: 0.5rem;
+            }
+          }
+
+          .left-panel-menu-item {
+            align-items: center;
+            // background-color: #242934;
+            border-radius: 3rem;
+            color: $white;
+            display: flex;
+            font-size: $mat-subheading-1-font-size;
+            outline: none;
+            padding: 0.75rem 1.5rem;
+            text-align: left;
+            // box-shadow: inset -2px -2px 4px #4c5463, inset 2px 2px 4px #191d28;
+
+            &:hover {
+              background-color: #242934;
+              color: $white;
+              cursor: pointer;
+
+              mat-icon {
+                color: $white;
+              }
+            }
+
+            &.selected {
+              color: #006aea;
+
+              mat-icon {
+                color: #006aea;
+              }
+            }
+
+            mat-icon {
+              color: $white;
+              margin-right: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -20,19 +20,27 @@ $left-panel-width: 15rem;
       height: 100%;
       left: 0;
       position: absolute;
-      width: 15rem;
+      width: $left-panel-width;
     }
 
     .hideLeftPanel {
       position: absolute;
-      left: -20rem;
+      left: -12rem;
     }
 
     .hideLeft {
-      margin: 1rem 0 1rem 1.5rem !important;
+      margin: 1rem 0 1rem 4rem !important;
     }
 
-    .hideContent {
+    .content {
+      position: relative;
+      width: calc(100% - #{$left-panel-width + 1rem});
+      padding: 1rem;
+
+      &-top-panel {
+        display: flex;
+        margin: 3rem 1rem 0 1rem;
+      }
     }
 
     .delimiter {
@@ -46,15 +54,12 @@ $left-panel-width: 15rem;
 
     .toggle {
       @include round-button;
-      background-color: linear-gradient(
-        116.82deg,
-        $round-backgraund-min,
-        $round-backgraund-max
-      );
-
       mat-icon {
         @include round-button-icon(1rem);
       }
+    }
+
+    .top-panel {
     }
   }
 }

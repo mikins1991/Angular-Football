@@ -1,5 +1,5 @@
-@import "../../../../../scss/vars/colors";
-@import "../../../../../scss/vars/fonts";
+@import "../../../../scss/vars/colors";
+@import "../../../../scss/vars/fonts";
 $light-gray: #b0bec5;
 
 :host {
@@ -12,8 +12,7 @@ $light-gray: #b0bec5;
     .logo-wrapper {
       display: flex;
       justify-content: center;
-      margin-top: 2rem;
-      padding: 0 2rem;
+      margin: 2rem 4rem;
       justify-content: center;
 
       .logo {
@@ -25,7 +24,12 @@ $light-gray: #b0bec5;
     .menu-items {
       display: flex;
       justify-content: center;
-      margin-top: 4rem;
+
+      &-hide {
+        width: 3rem !important;
+        position: absolute !important;
+        right: 0 !important;
+      }
 
       .menu-items-group {
         margin-bottom: 1rem;
@@ -58,6 +62,7 @@ $light-gray: #b0bec5;
           .left-panel-menu-item {
             cursor: default;
             display: flex;
+            margin: 0.5rem 0;
             padding: 0 0 0 2rem;
 
             &:hover {
@@ -86,15 +91,15 @@ $light-gray: #b0bec5;
             outline: none;
             padding: 0.75rem 1.5rem;
             text-align: left;
-            // box-shadow: inset -2px -2px 4px #4c5463, inset 2px 2px 4px #191d28;
 
             &:hover {
               background-color: #242934;
-              color: $white;
+              color: $text-active;
               cursor: pointer;
+              box-shadow: inset -2px -2px 4px #4c5463, inset 2px 2px 4px #191d28;
 
               mat-icon {
-                color: $white;
+                color: $text-active;
               }
             }
 
@@ -108,7 +113,20 @@ $light-gray: #b0bec5;
 
             mat-icon {
               color: $white;
-              margin-right: 0.5rem;
+              margin-right: 1rem;
+            }
+
+            .hide-icon {
+              position: relative;
+              left: -0.8rem;
+            }
+
+            .hide-panel-menu-item {
+              background-color: red !important;
+            }
+
+            .titleTextNone {
+              display: none;
             }
           }
         }

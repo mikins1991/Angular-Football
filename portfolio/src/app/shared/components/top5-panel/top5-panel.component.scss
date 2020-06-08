@@ -1,0 +1,54 @@
+@import "../../../../scss/vars/colors";
+@import "../../../../scss/vars/fonts";
+
+:host {
+  width: 100%;
+  .top-panel {
+    &-menu {
+      display: flex;
+      //   margin-left: 1rem;
+      justify-content: space-between;
+
+      .top-button {
+        display: flex;
+        align-items: center;
+        background-color: #353b47;
+        box-shadow: -2px -2px 8px #4c5463, 2px 2px 8px #1f2427;
+        border-radius: 0.8rem;
+        color: $white;
+        display: flex;
+        height: 3.5rem;
+        font-size: $mat-subheading-1-font-size;
+        outline: none;
+        // margin-right: 2rem;
+        text-align: left;
+        width: 10.5rem;
+
+        &:hover {
+          background-color: #242934;
+          color: $text-active;
+          cursor: pointer;
+          box-shadow: inset -2px -2px 4px #4c5463, inset 2px 2px 4px #191d28;
+
+          mat-icon {
+            color: $text-active;
+          }
+        }
+        &-logoLiga {
+          background-color: $white;
+          border-radius: 0.5rem;
+          margin: 0 0.5rem;
+          height: 2rem;
+          width: 2rem;
+
+          &-img {
+            border-radius: 0.5rem;
+
+            height: 100%;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

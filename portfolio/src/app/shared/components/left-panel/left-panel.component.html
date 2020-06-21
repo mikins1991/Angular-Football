@@ -10,6 +10,8 @@
           color="left-panel-primery"
           class="left-panel-menu-item"
           [class.hide-panel-menu-item]="hide"
+          routerLink="{{ page.path }}"
+          routerLinkActive="left-panel-menu-item-active"
         >
           <mat-icon *ngIf="page.icon" [class.hide-icon]="hide">{{
             page.icon

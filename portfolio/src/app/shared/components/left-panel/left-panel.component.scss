@@ -91,8 +91,9 @@ $light-gray: #b0bec5;
             outline: none;
             padding: 0.75rem 1.5rem;
             text-align: left;
+            text-decoration: none;
 
-            &:hover {
+            &-active {
               background-color: #242934;
               color: $text-active;
               cursor: pointer;
@@ -100,19 +101,24 @@ $light-gray: #b0bec5;
 
               mat-icon {
                 color: $text-active;
+                margin-right: 1rem;
               }
             }
 
-            &.selected {
-              color: #006aea;
+            &:hover {
+              background-color: #303644;
+              color: $white;
+              cursor: pointer;
+              box-shadow: inset -2px -2px 4px #4c5463, inset 2px 2px 4px #191d28;
 
               mat-icon {
-                color: #006aea;
+                color: $white;
+                margin-right: 1rem;
               }
             }
 
             mat-icon {
-              color: $white;
+              // color: $white;
               margin-right: 1rem;
             }
 

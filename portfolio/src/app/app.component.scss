@@ -3,6 +3,8 @@
 @import "../scss/vars/sizes";
 
 $left-panel-width: 15rem;
+$left-panel-width-hide: 4rem;
+$top-hight: 7.5rem;
 
 :host {
   .app-layout {
@@ -35,12 +37,16 @@ $left-panel-width: 15rem;
     .content {
       position: relative;
       width: calc(100% - #{$left-panel-width + 1rem});
-      padding: 1rem;
+      padding: 0.5rem;
 
       &-top-panel {
         display: flex;
-        margin: 3rem 1rem 0 1rem;
+        margin: 3rem 1rem 1.5rem 1rem;
       }
+    }
+
+    .hideContent {
+      width: calc(100% - #{$left-panel-width-hide + 1rem});
     }
 
     .delimiter {
@@ -59,7 +65,9 @@ $left-panel-width: 15rem;
       }
     }
 
-    .top-panel {
+    .router {
+      margin: 0 1rem;
+      height: calc(100% - #{$top-hight});
     }
   }
 }

@@ -1,6 +1,11 @@
 <div class="top-panel">
   <div class="top-panel-menu">
-    <a *ngFor="let tab of tabsLiga" class="top-button">
+    <a
+      *ngFor="let tab of tabsLiga"
+      class="top-button"
+      [class.top-button-active]="tab.active"
+      (click)="clickLiga(tab.title)"
+    >
       <div class="top-button-logoLiga">
         <img class="top-button-logoLiga-img" src="{{ tab.icon }}" />
       </div>

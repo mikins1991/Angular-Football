@@ -11,5 +11,11 @@ export class Top5PanelComponent implements OnInit {
   tabsLiga = TABS;
   constructor() {}
 
+  clickLiga(title) {
+    this.tabsLiga.forEach((elem) => {
+      elem.title === title ? (elem.active = true) : (elem.active = false);
+    });
+  }
+
   ngOnInit(): void {}
 }

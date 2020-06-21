@@ -7,16 +7,22 @@ import { LeftPanelModule } from './shared/components/left-panel/left-panel.modul
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { Top5PanelModule } from './shared/components/top5-panel/top5-panel.module';
+import { MatchesModule } from './pages/matches/matches.module';
+import { HttpClientModule } from '@angular/common/http';
+import { StandingsModule } from './pages/standings/standings.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     LeftPanelModule,
     BrowserAnimationsModule,
     MatIconModule,
     Top5PanelModule,
+    MatchesModule,
+    StandingsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -43,6 +43,7 @@ $hight-card: 1rem;
             // height: 100%;
             font-size: $mat-subheading-1-font-size;
             outline: none;
+            position: relative;
             text-align: left;
             width: calc(50% - 1rem);
             margin: 0.5rem 0.5rem;
@@ -99,6 +100,16 @@ $hight-card: 1rem;
         .chart {
             height: calc(100% - 2rem);
             width: 100%;
+        }
+
+        ::ng-deep .mat-progress-spinner circle,
+        .mat-spinner circle {
+            stroke: #e9540c;
+        }
+
+        .spiner {
+            position: absolute;
+            top: 40%;
         }
     }
 }

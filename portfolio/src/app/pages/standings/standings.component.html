@@ -1,67 +1,95 @@
 <div class="content-wrapper">
   <div class="content-wrapper-chart-top">
 
-    <div class="content-wrapper-chart " [class.hideCard]="hide" *ngIf="dataAPL">
-      <!-- <ng-container
-      *ngIf="!daypartDownloading && isLoaded(charts.showDayPartDataLoadingStatus); else dayPartSpinner"> -->
-      <div class="title">
-        {{ dataAPL.competition.name }}
-        <button class="toggle" (click)="togglePanel()">
-          <mat-icon>{{ hide ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
-        </button>
-      </div>
-      <charts-standings class="chart" [data]="dataAPL"> </charts-standings>
-      <!-- </ng-container> -->
+    <div class="content-wrapper-chart " [class.hideCard]="hide">
+      <ng-container *ngIf="statusLoadingAPL; else aplSpinner">
+        <div class="title">
+          {{ dataAPL.competition.name }}
+          <button class="toggle" (click)="togglePanel()">
+            <mat-icon>{{ hide ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
+          </button>
+        </div>
+        <charts-standings class="chart" [data]="dataAPL"> </charts-standings>
+      </ng-container>
+      <ng-template #aplSpinner>
+        <mat-progress-spinner class="spiner" [mode]="spinerConfig.mode" [value]="spinerConfig.value">
+        </mat-progress-spinner>
+      </ng-template>
     </div>
-    <!-- <ng-template #dayPartSpinner>
-      <mat-spinner></mat-spinner>
-      <spinner
-        [type]="spinnerConfig.type"
-        [size]="spinnerConfig.size"
-        [color]="spinnerConfig.color"
-        class="spinner"
-      ></spinner>
-    </ng-template> -->
+
+
     <div class="content-wrapper-chart" [class.hideCard]="hide" *ngIf="dataPrimeraSpain">
-      <div class="title">
-        {{ dataPrimeraSpain.competition.name }}
-        <button class="toggle" (click)="togglePanel()">
-          <mat-icon>{{ hide ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
-        </button>
-      </div>
-      <charts-standings class="chart" [data]="dataPrimeraSpain"> </charts-standings>
+      <ng-container *ngIf="statusLoadingPrimeraSpain; else primeraSpainSpinner">
+        <div class="title">
+          {{ dataPrimeraSpain.competition.name }}
+          <button class="toggle" (click)="togglePanel()">
+            <mat-icon>{{ hide ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
+          </button>
+        </div>
+        <charts-standings class="chart" [data]="dataPrimeraSpain"> </charts-standings>
+      </ng-container>
+      <ng-template #primeraSpainSpinner>
+        <mat-progress-spinner class="spiner" [mode]="spinerConfig.mode" [value]="spinerConfig.value">
+        </mat-progress-spinner>
+      </ng-template>
     </div>
+
 
   </div>
   <div class="content-wrapper-chart-bottom">
+
     <div class="content-wrapper-chart" [class.hideCard]="hide" *ngIf="dataSeriaAIt">
-      <div class="title">
-        {{ dataSeriaAIt.competition.name }}
-        <button class="toggle" (click)="togglePanel()">
-          <mat-icon>{{ hide ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
-        </button>
-      </div>
-      <chart-standings-v2 class="chart" [data]="dataSeriaAIt"> </chart-standings-v2>
+      <ng-container *ngIf="statusLoadingSeriaAIt; else seriaAItSpainSpinner">
+        <div class="title">
+          {{ dataSeriaAIt.competition.name }}
+          <button class="toggle" (click)="togglePanel()">
+            <mat-icon>{{ hide ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
+          </button>
+        </div>
+        <chart-standings-v2 class="chart" [data]="dataSeriaAIt"> </chart-standings-v2>
+      </ng-container>
+      <ng-template #seriaAItSpainSpinner>
+        <mat-progress-spinner class="spiner" [mode]="spinerConfig.mode" [value]="spinerConfig.value">
+        </mat-progress-spinner>
+      </ng-template>
     </div>
 
+
     <div class="content-wrapper-chart" [class.hideCard]="hide" *ngIf="dataBLiga">
-      <div class="title">
-        {{ dataBLiga.competition.name  }}
-        <button class="toggle" (click)="togglePanel()">
-          <mat-icon>{{ hide ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
-        </button>
-      </div>
-      <chart-standings-v2 class="chart" [data]="dataBLiga"> </chart-standings-v2>
+      <ng-container *ngIf="statusLoadingBliga; else BligaSpainSpinner">
+
+        <div class="title">
+          {{ dataBLiga.competition.name  }}
+          <button class="toggle" (click)="togglePanel()">
+            <mat-icon>{{ hide ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
+          </button>
+        </div>
+        <chart-standings-v2 class="chart" [data]="dataBLiga"> </chart-standings-v2>
+      </ng-container>
+      <ng-template #BligaSpainSpinner>
+        <mat-progress-spinner class="spiner" [mode]="spinerConfig.mode" [value]="spinerConfig.value">
+        </mat-progress-spinner>
+      </ng-template>
     </div>
+
+
     <div class="content-wrapper-chart" [class.hideCard]="hide" *ngIf="dataFrLiga">
-      <div class="title">
-        {{ dataFrLiga.competition.name }}
-        <button class="toggle" (click)="togglePanel()">
-          <mat-icon>{{ hide ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
-        </button>
-      </div>
-      <chart-standings-v2 class="chart" [data]="dataFrLiga"> </chart-standings-v2>
+      <ng-container *ngIf="statusLoadingFrLiga; else FrLigaSpainSpinner">
+
+        <div class="title">
+          {{ dataFrLiga.competition.name }}
+          <button class="toggle" (click)="togglePanel()">
+            <mat-icon>{{ hide ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
+          </button>
+        </div>
+        <chart-standings-v2 class="chart" [data]="dataFrLiga"> </chart-standings-v2>
+      </ng-container>
+      <ng-template #FrLigaSpainSpinner>
+        <mat-progress-spinner class="spiner" [mode]="spinerConfig.mode" [value]="spinerConfig.value">
+        </mat-progress-spinner>
+      </ng-template>
     </div>
+
   </div>
 
 </div>

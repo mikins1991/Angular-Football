@@ -9,10 +9,17 @@ import { ResultCardModule } from 'src/app/shared/components/result-card/result-c
 import { MatIconModule } from '@angular/material/icon';
 import { ChartStandingsV2Component } from './chart-standings-v2/chart-standings-v2.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 @NgModule({
     declarations: [ StandingsComponent, StandingsContainer, ChartsStandingsComponent, ChartStandingsV2Component ],
-    imports: [ CommonModule, TableModule, ResultCardModule, MatIconModule, MatProgressSpinnerModule ],
+    imports: [
+        CommonModule,
+        TableModule,
+        ResultCardModule,
+        MatIconModule,
+        MatProgressSpinnerModule,
+        MatProgressBarModule
+    ],
     exports: [ StandingsContainer ],
     providers: [ ApiFootbalService ]
 })

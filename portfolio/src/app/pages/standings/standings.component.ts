@@ -3,6 +3,7 @@ import { ApiFootbalService } from 'src/API/api.service';
 import { take } from 'rxjs/internal/operators/take';
 import { TABS } from 'src/app/shared/components/shared/left-panel.config';
 import { Standing } from './interface/standing.interface';
+import { SPINNER_CONFIG } from 'src/app/shared/components/shared/spinner-config';
 
 @Component({
     // tslint:disable-next-line: component-selector
@@ -18,6 +19,13 @@ export class StandingsComponent implements OnInit {
     dataSeriaAIt: Standing.DataLiga;
     dataPrimeraSpain: Standing.DataLiga;
     hide: boolean;
+    statusLoadingAPL: boolean;
+    statusLoadingBliga: boolean;
+    statusLoadingSeriaAIt: boolean;
+    statusLoadingFrLiga: boolean;
+    statusLoadingPrimeraSpain: boolean;
+
+    readonly spinerConfig = SPINNER_CONFIG;
     readonly Liga = TABS;
 
     constructor(private apiService: ApiFootbalService, private crdf: ChangeDetectorRef) {}
@@ -26,28 +34,42 @@ export class StandingsComponent implements OnInit {
         this.hide = !this.hide;
     }
 
-    getDataBliga(data) {
+    getDataBliga(data: Standing.ResponseData): void {
         this.dataBLiga = data.body;
+        this.statusLoadingBliga = data.ok;
+
         this.crdf.detectChanges();
     }
 
-    getDataAPL(data) {
+    getDataAPL(data: Standing.ResponseData): void {
         this.dataAPL = data.body;
+        // setTimeout(() => {
+        this.statusLoadingAPL = data.ok;
+        // }, 1000)
         this.crdf.detectChanges();
     }
 
-    getFrLiga(data) {
+    getFrLiga(data: Standing.ResponseData): void {
         this.dataFrLiga = data.body;
+        this.statusLoadingFrLiga = data.ok;
+        console.log('StandingsComponent -> getFrLiga -> this.statusLoadingFrLiga', this.statusLoadingFrLiga);
+
         this.crdf.detectChanges();
     }
 
-    getSeriaAIt(data) {
+    getSeriaAIt(data: Standing.ResponseData): void {
         this.dataSeriaAIt = data.body;
+        // setTimeout(() => {
+        this.statusLoadingSeriaAIt = data.ok;
+        // }, 500);
+
         this.crdf.detectChanges();
     }
 
     getPrimeraSpain(data) {
         this.dataPrimeraSpain = data.body;
+        this.statusLoadingPrimeraSpain = data.ok;
+
         this.crdf.detectChanges();
     }
 

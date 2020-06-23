@@ -8,16 +8,12 @@ import { ChartsStandingsComponent } from './charts-standings/charts-standings.co
 import { ResultCardModule } from 'src/app/shared/components/result-card/result-card.module';
 import { MatIconModule } from '@angular/material/icon';
 import { ChartStandingsV2Component } from './chart-standings-v2/chart-standings-v2.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
-  declarations: [
-    StandingsComponent,
-    StandingsContainer,
-    ChartsStandingsComponent,
-    ChartStandingsV2Component,
-  ],
-  imports: [CommonModule, TableModule, ResultCardModule, MatIconModule],
-  exports: [StandingsContainer],
-  providers: [ApiFootbalService],
+    declarations: [ StandingsComponent, StandingsContainer, ChartsStandingsComponent, ChartStandingsV2Component ],
+    imports: [ CommonModule, TableModule, ResultCardModule, MatIconModule, MatProgressSpinnerModule ],
+    exports: [ StandingsContainer ],
+    providers: [ ApiFootbalService ]
 })
 export class StandingsModule {}

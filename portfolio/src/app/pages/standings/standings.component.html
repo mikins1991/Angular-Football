@@ -1,47 +1,67 @@
 <div class="content-wrapper">
-  <div class="content-wrapper-chart" [class.hideCard]="hide">
-    <div class="title">
-      {{ Liga[1].title }}
-      <button class="toggle" (click)="togglePanel()">
-        <mat-icon>{{ hide ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
-      </button>
+  <div class="content-wrapper-chart-top">
+
+    <div class="content-wrapper-chart " [class.hideCard]="hide" *ngIf="dataAPL">
+      <!-- <ng-container
+      *ngIf="!daypartDownloading && isLoaded(charts.showDayPartDataLoadingStatus); else dayPartSpinner"> -->
+      <div class="title">
+        {{ dataAPL.competition.name }}
+        <button class="toggle" (click)="togglePanel()">
+          <mat-icon>{{ hide ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
+        </button>
+      </div>
+      <charts-standings class="chart" [data]="dataAPL"> </charts-standings>
+      <!-- </ng-container> -->
     </div>
-    <charts-standings class="chart" [data]="dataAPL"> </charts-standings>
-  </div>
-  <div class="content-wrapper-chart" [class.hideCard]="hide">
-    <div class="title">
-      {{ Liga[4].title }}
-      <button class="toggle" (click)="togglePanel()">
-        <mat-icon>{{ hide ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
-      </button>
+    <!-- <ng-template #dayPartSpinner>
+      <mat-spinner></mat-spinner>
+      <spinner
+        [type]="spinnerConfig.type"
+        [size]="spinnerConfig.size"
+        [color]="spinnerConfig.color"
+        class="spinner"
+      ></spinner>
+    </ng-template> -->
+    <div class="content-wrapper-chart" [class.hideCard]="hide" *ngIf="dataPrimeraSpain">
+      <div class="title">
+        {{ dataPrimeraSpain.competition.name }}
+        <button class="toggle" (click)="togglePanel()">
+          <mat-icon>{{ hide ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
+        </button>
+      </div>
+      <charts-standings class="chart" [data]="dataPrimeraSpain"> </charts-standings>
     </div>
-    <charts-standings class="chart" [data]="dataBLiga"> </charts-standings>
+
   </div>
-  <div class="content-wrapper-chart" [class.hideCard]="hide">
-    <div class="title">
-      {{ Liga[4].title }}
-      <button class="toggle" (click)="togglePanel()">
-        <mat-icon>{{ hide ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
-      </button>
+  <div class="content-wrapper-chart-bottom">
+    <div class="content-wrapper-chart" [class.hideCard]="hide" *ngIf="dataSeriaAIt">
+      <div class="title">
+        {{ dataSeriaAIt.competition.name }}
+        <button class="toggle" (click)="togglePanel()">
+          <mat-icon>{{ hide ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
+        </button>
+      </div>
+      <chart-standings-v2 class="chart" [data]="dataSeriaAIt"> </chart-standings-v2>
     </div>
-    <chart-standings-v2 class="chart" [data]="dataBLiga"> </chart-standings-v2>
-  </div>
-  <div class="content-wrapper-chart" [class.hideCard]="hide">
-    <div class="title">
-      {{ Liga[4].title }}
-      <button class="toggle" (click)="togglePanel()">
-        <mat-icon>{{ hide ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
-      </button>
+
+    <div class="content-wrapper-chart" [class.hideCard]="hide" *ngIf="dataBLiga">
+      <div class="title">
+        {{ dataBLiga.competition.name  }}
+        <button class="toggle" (click)="togglePanel()">
+          <mat-icon>{{ hide ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
+        </button>
+      </div>
+      <chart-standings-v2 class="chart" [data]="dataBLiga"> </chart-standings-v2>
     </div>
-    <chart-standings-v2 class="chart" [data]="dataBLiga"> </chart-standings-v2>
-  </div>
-  <div class="content-wrapper-chart" [class.hideCard]="hide">
-    <div class="title">
-      {{ Liga[4].title }}
-      <button class="toggle" (click)="togglePanel()">
-        <mat-icon>{{ hide ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
-      </button>
+    <div class="content-wrapper-chart" [class.hideCard]="hide" *ngIf="dataFrLiga">
+      <div class="title">
+        {{ dataFrLiga.competition.name }}
+        <button class="toggle" (click)="togglePanel()">
+          <mat-icon>{{ hide ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
+        </button>
+      </div>
+      <chart-standings-v2 class="chart" [data]="dataFrLiga"> </chart-standings-v2>
     </div>
-    <chart-standings-v2 class="chart" [data]="dataBLiga"> </chart-standings-v2>
   </div>
+
 </div>

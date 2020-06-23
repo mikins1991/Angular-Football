@@ -20,6 +20,18 @@ $hight-card: 1rem;
         position: relative;
         // overflow: scroll;
 
+        &-chart-top {
+            display: flex;
+            width: 100%;
+            height: 50%;
+        }
+
+        &-chart-bottom {
+            display: flex;
+            width: 100%;
+            height: calc(50% - 1rem);
+        }
+
         &-chart {
             align-items: center;
             background-color: #353b47;
@@ -28,12 +40,12 @@ $hight-card: 1rem;
             color: $white;
             display: flex;
             flex-direction: column;
-            height: calc(50% - 2rem);
+            // height: 100%;
             font-size: $mat-subheading-1-font-size;
             outline: none;
             text-align: left;
-            width: calc(50% - 2rem);
-            margin: 0.5rem 0.2rem;
+            width: calc(50% - 1rem);
+            margin: 0.5rem 0.5rem;
         }
 
         .hideCard {

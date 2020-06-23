@@ -59,7 +59,7 @@ export class ChartStandingsV2Component implements OnInit, OnChanges, OnDestroy {
 
     this.chart.data = dataChart;
 
-    let categoryAxis = this.chart.xAxes.push(new am4charts.CategoryAxis());
+    const categoryAxis = this.chart.xAxes.push(new am4charts.CategoryAxis());
     categoryAxis.renderer.grid.template.location = 0;
     categoryAxis.dataFields.category = 'position';
     categoryAxis.adapter.add('getTooltipText', (text, target) => {
@@ -70,7 +70,7 @@ export class ChartStandingsV2Component implements OnInit, OnChanges, OnDestroy {
     categoryAxis.fontSize = 11;
     categoryAxis.renderer.labels.template.dy = 5;
 
-    let image = new am4core.Image();
+    const image = new am4core.Image();
     image.horizontalCenter = 'middle';
     image.width = 35;
     image.height = 35;
@@ -82,12 +82,12 @@ export class ChartStandingsV2Component implements OnInit, OnChanges, OnDestroy {
 
     categoryAxis.dataItems.template.bullet = image;
 
-    let valueAxis = this.chart.yAxes.push(new am4charts.ValueAxis());
+    const valueAxis = this.chart.yAxes.push(new am4charts.ValueAxis());
     valueAxis.min = 0;
     valueAxis.renderer.minGridDistance = 30;
     valueAxis.renderer.baseGrid.disabled = true;
 
-    let series = this.chart.series.push(new am4charts.ColumnSeries());
+    const series = this.chart.series.push(new am4charts.ColumnSeries());
     series.dataFields.valueY = 'points';
     series.dataFields.categoryX = 'position';
     series.tooltipText = '{valueY.value}';
@@ -95,7 +95,7 @@ export class ChartStandingsV2Component implements OnInit, OnChanges, OnDestroy {
     series.columns.template.strokeOpacity = 0;
 
     series.columns.template.adapter.add('fill', (fill, target) => {
-      let color = this.chart.colors.getIndex(target.dataItem.index);
+      const color = this.chart.colors.getIndex(target.dataItem.index);
       return color;
     });
   }

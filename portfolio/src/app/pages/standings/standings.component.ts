@@ -13,6 +13,7 @@ import { take } from 'rxjs/internal/operators/take';
 import { TABS } from 'src/app/shared/components/shared/left-panel.config';
 
 @Component({
+  // tslint:disable-next-line: component-selector
   selector: 'standings-container',
   templateUrl: './standings.component.html',
   styleUrls: ['./standings.component.scss'],

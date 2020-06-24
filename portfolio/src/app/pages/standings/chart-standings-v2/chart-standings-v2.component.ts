@@ -15,6 +15,7 @@ import * as am4charts from '@amcharts/amcharts4/charts';
 import am4themes_dark from '@amcharts/amcharts4/themes/dark';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import { MapDataHelper } from '../helper/map-data-helper';
+import { LigaNames } from 'src/app/shared/components/shared/liga.const';
 
 @Component({
     selector: 'chart-standings-v2',
@@ -50,15 +51,15 @@ export class ChartStandingsV2Component implements OnInit, OnChanges, OnDestroy {
 
     private createColor(nameLiga: string) {
         switch (nameLiga) {
-            case 'Ligue 1':
+            case LigaNames.frLiga:
                 this.colorSeriasMin = '#18B318';
                 this.colorSeriasMax = '#FFE500';
                 return;
-            case 'Bundesliga':
+            case LigaNames.bLiga:
                 this.colorSeriasMin = '#FFE500';
                 this.colorSeriasMax = '#FF0000';
                 return;
-            case 'Serie A':
+            case LigaNames.itLiga:
                 this.colorSeriasMin = '#FF0000';
                 this.colorSeriasMax = '#008FD7';
                 return;

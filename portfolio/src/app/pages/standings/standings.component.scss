@@ -29,7 +29,7 @@ $hight-card: 1rem;
         &-chart-bottom {
             display: flex;
             width: 100%;
-            height: calc(50% - 1rem);
+            height: 50%;
         }
 
         &-chart {
@@ -49,21 +49,71 @@ $hight-card: 1rem;
             margin: 0.5rem 0.5rem;
         }
 
-        .hideCard {
-            height: calc(100% - #{$hight-card});
-        }
-
         .title {
+            display: flex;
             height: 2rem;
-
             font-size: 1rem;
             font-weight: 700;
             height: 2rem;
+            justify-content: center;
+            margin-top: 0.5rem;
             line-height: 1.75rem;
             padding: 0.25rem;
             position: relative;
             text-align: center;
             width: 100%;
+        }
+
+        .sort-standing {
+            display: flex;
+            position: absolute;
+            left: 1rem;
+            top: 0.5rem;
+            height: $round-button-size;
+            width: auto;
+        }
+
+        .sortBut {
+            align-items: center;
+            background: #353b47;
+            box-shadow: -2px -2px 4px #4c5463, 2px 2px 8px #1f2427;
+            color: $white;
+            font-size: $mat-subheading-1-font-size;
+            outline: none;
+            margin: 0 0.2rem;
+            justify-content: center;
+            border-radius: 50%;
+            height: $round-button-size;
+            width: $round-button-size;
+
+            &-active {
+                background-color: #242934;
+                color: $text-active;
+                cursor: pointer;
+                box-shadow: inset -4px -4px 10px #4c5463, inset 4px 4px 10px #191d28;
+            }
+
+            &:hover {
+                background-color: #303644;
+                color: $text-active;
+                cursor: pointer;
+                box-shadow: inset -4px -4px 10px #4c5463, inset 4px 4px 10px #191d28;
+            }
+
+            // align-items: center;
+            // background-color: $round-backgraund;
+            // border: 0;
+            // cursor: pointer;
+            // border-radius: 50%;
+            // height: $round-button-size;
+            // width: $round-button-size;
+            // outline: none;
+            // box-shadow: -4px -4px 10px #4c5463, 4px 4px 10px #1f2427;
+
+            // &:hover {
+            //     background-color: $round-backgraund;
+            //     box-shadow: -1px -1px 5px #4c5463, 1px 1px 5px #1f2427;
+            // }
         }
 
         .toggle {
@@ -93,7 +143,25 @@ $hight-card: 1rem;
             }
         }
 
-        .card {
+        .logoLiga {
+            background-color: $white;
+            border-radius: 0.5rem;
+            margin: 0 1rem;
+            height: 2rem;
+            width: 2rem;
+
+            &-img {
+                border-radius: 0.5rem;
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        .hideCard {
+            height: calc(100% - 1rem);
+            position: absolute;
+            top: 0;
+            z-index: 2;
             width: 100%;
         }
 
@@ -104,7 +172,7 @@ $hight-card: 1rem;
 
         ::ng-deep .mat-progress-spinner circle,
         .mat-spinner circle {
-            stroke: #e9540c;
+            stroke: $cart-color-min;
         }
 
         .spiner {

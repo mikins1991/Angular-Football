@@ -1,12 +1,21 @@
 <div class="content-wrapper">
   <div class="content-wrapper-chart-top">
 
-    <div class="content-wrapper-chart " [class.hideCard]="hide">
+    <div class="content-wrapper-chart " [class.hideCard]="hide.apl">
       <ng-container *ngIf="statusLoadingAPL; else aplSpinner">
         <div class="title">
+          <div class="sort-standing">
+            <button class="sortBut" title="{{sort.title}}" *ngFor="let sort of sortStandings; let i = index"
+              (click)="sortStanding(Liga[1].title, i)">
+              {{sort.name}}
+            </button>
+          </div>
+          <div class="logoLiga">
+            <img class="logoLiga-img" src="{{ Liga[1].icon }}" />
+          </div>
           {{ dataAPL.competition.name }}
-          <button class="toggle" (click)="togglePanel()">
-            <mat-icon>{{ hide ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
+          <button class="toggle" title="{{titleButtons.change}}" (click)="togglePanel(Liga[1].title)">
+            <mat-icon>{{ hide.apl ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
           </button>
         </div>
         <charts-standings class="chart" [data]="dataAPL"> </charts-standings>
@@ -18,12 +27,15 @@
     </div>
 
 
-    <div class="content-wrapper-chart" [class.hideCard]="hide" *ngIf="dataPrimeraSpain">
+    <div class="content-wrapper-chart" [class.hideCard]="hide.laLiga" *ngIf="dataPrimeraSpain">
       <ng-container *ngIf="statusLoadingPrimeraSpain; else primeraSpainSpinner">
         <div class="title">
+          <div class="logoLiga">
+            <img class="logoLiga-img" src="{{ Liga[2].icon }}" />
+          </div>
           {{ dataPrimeraSpain.competition.name }}
-          <button class="toggle" (click)="togglePanel()">
-            <mat-icon>{{ hide ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
+          <button class="toggle" title="{{titleButtons.change}}" (click)="togglePanel(Liga[2].title)">
+            <mat-icon>{{ hide.laLiga ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
           </button>
         </div>
         <charts-standings class="chart" [data]="dataPrimeraSpain"> </charts-standings>
@@ -38,12 +50,15 @@
   </div>
   <div class="content-wrapper-chart-bottom">
 
-    <div class="content-wrapper-chart" [class.hideCard]="hide" *ngIf="dataSeriaAIt">
+    <div class="content-wrapper-chart" [class.hideCard]="hide.itLiga" *ngIf="dataSeriaAIt">
       <ng-container *ngIf="statusLoadingSeriaAIt; else seriaAItSpainSpinner">
         <div class="title">
+          <div class="logoLiga">
+            <img class="logoLiga-img" src="{{ Liga[3].icon }}" />
+          </div>
           {{ dataSeriaAIt.competition.name }}
-          <button class="toggle" (click)="togglePanel()">
-            <mat-icon>{{ hide ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
+          <button class="toggle" title="{{titleButtons.change}}" (click)="togglePanel(Liga[3].title)">
+            <mat-icon>{{ hide.itLiga ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
           </button>
         </div>
         <chart-standings-v2 class="chart" [data]="dataSeriaAIt"> </chart-standings-v2>
@@ -55,13 +70,16 @@
     </div>
 
 
-    <div class="content-wrapper-chart" [class.hideCard]="hide" *ngIf="dataBLiga">
+    <div class="content-wrapper-chart" [class.hideCard]="hide.bLiga" *ngIf="dataBLiga">
       <ng-container *ngIf="statusLoadingBliga; else BligaSpainSpinner">
 
         <div class="title">
+          <div class="logoLiga">
+            <img class="logoLiga-img" src="{{ Liga[4].icon }}" />
+          </div>
           {{ dataBLiga.competition.name  }}
-          <button class="toggle" (click)="togglePanel()">
-            <mat-icon>{{ hide ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
+          <button class="toggle" title="{{titleButtons.change}}" (click)="togglePanel(Liga[4].title)">
+            <mat-icon>{{ hide.bLiga ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
           </button>
         </div>
         <chart-standings-v2 class="chart" [data]="dataBLiga"> </chart-standings-v2>
@@ -73,13 +91,16 @@
     </div>
 
 
-    <div class="content-wrapper-chart" [class.hideCard]="hide" *ngIf="dataFrLiga">
+    <div class="content-wrapper-chart" [class.hideCard]="hide.frLiga" *ngIf="dataFrLiga">
       <ng-container *ngIf="statusLoadingFrLiga; else FrLigaSpainSpinner">
 
         <div class="title">
+          <div class="logoLiga">
+            <img class="logoLiga-img" src="{{ Liga[5].icon }}" />
+          </div>
           {{ dataFrLiga.competition.name }}
-          <button class="toggle" (click)="togglePanel()">
-            <mat-icon>{{ hide ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
+          <button class="toggle" title="{{titleButtons.change}}" (click)="togglePanel(Liga[5].title)">
+            <mat-icon>{{ hide.frLiga ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
           </button>
         </div>
         <chart-standings-v2 class="chart" [data]="dataFrLiga"> </chart-standings-v2>

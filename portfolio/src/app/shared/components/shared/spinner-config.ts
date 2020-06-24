@@ -1,5 +1,5 @@
 export const SPINNER_CONFIG = {
-    color: '#e9540c',
+    color: '$cart-color-min',
     mode: 'indeterminate',
     value: 50
 };

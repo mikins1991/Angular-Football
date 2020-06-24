@@ -25,6 +25,7 @@ import { LigaNames } from 'src/app/shared/components/shared/liga.const';
 })
 export class ChartsStandingsComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
     @Input() data: any;
+    @Input() sortIndex: any;
 
     @ViewChild('chart', { static: true })
     chartRef: ElementRef;
@@ -46,6 +47,12 @@ export class ChartsStandingsComponent implements OnInit, OnDestroy, OnChanges, A
             const dataChart = MapDataHelper.mapingDataStandings(this.data.standings[0].table);
 
             this.createChart(dataChart);
+        }
+        if (changes.sortIndex && changes.sortIndex.currentValue) {
+            if (this.sortIndex.title === this.data.competition.name) {
+                const dataChart = MapDataHelper.mapingDataStandings(this.data.standings[this.sortIndex.index].table);
+                this.createChart(dataChart);
+            }
         }
     }
 

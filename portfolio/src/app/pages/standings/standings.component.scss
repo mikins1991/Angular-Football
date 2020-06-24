@@ -76,6 +76,7 @@ $hight-card: 1rem;
         .sortBut {
             align-items: center;
             background: #353b47;
+            border: none;
             box-shadow: -2px -2px 4px #4c5463, 2px 2px 8px #1f2427;
             color: $white;
             font-size: $mat-subheading-1-font-size;
@@ -99,21 +100,6 @@ $hight-card: 1rem;
                 cursor: pointer;
                 box-shadow: inset -4px -4px 10px #4c5463, inset 4px 4px 10px #191d28;
             }
-
-            // align-items: center;
-            // background-color: $round-backgraund;
-            // border: 0;
-            // cursor: pointer;
-            // border-radius: 50%;
-            // height: $round-button-size;
-            // width: $round-button-size;
-            // outline: none;
-            // box-shadow: -4px -4px 10px #4c5463, 4px 4px 10px #1f2427;
-
-            // &:hover {
-            //     background-color: $round-backgraund;
-            //     box-shadow: -1px -1px 5px #4c5463, 1px 1px 5px #1f2427;
-            // }
         }
 
         .toggle {
@@ -142,6 +128,13 @@ $hight-card: 1rem;
                 margin-left: -0.1rem;
             }
         }
+
+        //     display: flex;
+        // width: 13rem;
+        // height: 11rem;
+        // position: absolute;
+        // top: 4rem;
+        // right: 0rem;
 
         .logoLiga {
             background-color: $white;

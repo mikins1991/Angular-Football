@@ -1,10 +1,10 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, Output, EventEmitter } from '@angular/core';
 import { ApiFootbalService } from 'src/API/api.service';
 import { take } from 'rxjs/internal/operators/take';
 import { TABS } from 'src/app/shared/components/shared/left-panel.config';
 import { Standing } from './interface/standing.interface';
 import { SPINNER_CONFIG } from 'src/app/shared/components/shared/spinner-config';
-import { LigaNames, HideCadr } from 'src/app/shared/components/shared/liga.const';
+import { LigaNames, HideCadr, SortButton } from 'src/app/shared/components/shared/liga.const';
 
 @Component({
     // tslint:disable-next-line: component-selector
@@ -24,13 +24,18 @@ export class StandingsComponent implements OnInit {
     statusLoadingSeriaAIt: boolean;
     statusLoadingFrLiga: boolean;
     statusLoadingPrimeraSpain: boolean;
+    sortIndex;
 
     hide = HideCadr;
     titleButtons = {
         change: 'Change size'
     };
-
-    sortStandings = [ { title: 'TOTAL', name: 'T' }, { title: 'HOME', name: 'H' }, { title: 'AWAY', name: 'A' } ];
+    sortButton = SortButton;
+    sortStandings = [
+        { title: 'TOTAL', name: 'T', active: true },
+        { title: 'HOME', name: 'H', active: false },
+        { title: 'AWAY', name: 'A', active: false }
+    ];
     readonly LigaNames = LigaNames;
     readonly spinerConfig = SPINNER_CONFIG;
     readonly Liga = TABS;
@@ -38,7 +43,6 @@ export class StandingsComponent implements OnInit {
     constructor(private apiService: ApiFootbalService, private crdf: ChangeDetectorRef) {}
 
     togglePanel(title: string): void {
-        console.log('StandingsComponent -> togglePanel -> title', title);
         switch (title) {
             case LigaNames.apl:
                 this.hide.apl = !this.hide.apl;
@@ -58,7 +62,60 @@ export class StandingsComponent implements OnInit {
         }
     }
 
-    sortStanding(title: string, i: number): void {}
+    sortStanding(title: string, i: number): void {
+        this.sortIndex = { title: title, index: i };
+
+        switch (title) {
+            case LigaNames.apl:
+                this.sortButton.apl.map((elem, ind) => {
+                    if (ind === i) {
+                        elem.active = true;
+                        return;
+                    }
+                    elem.active = false;
+                });
+                console.log('StandingsComponent -> sortStanding -> this.sortButton', this.sortButton);
+                return;
+            case LigaNames.laLiga:
+                this.sortButton.laLiga.map((elem, ind) => {
+                    if (ind === i) {
+                        elem.active = true;
+                        return;
+                    }
+                    elem.active = false;
+                });
+
+                return;
+            case LigaNames.frLiga:
+                this.sortButton.frLiga.map((elem, ind) => {
+                    if (ind === i) {
+                        elem.active = true;
+                        return;
+                    }
+                    elem.active = false;
+                });
+                return;
+            case LigaNames.bLiga:
+                this.sortButton.bLiga.map((elem, ind) => {
+                    if (ind === i) {
+                        elem.active = true;
+                        return;
+                    }
+                    elem.active = false;
+                });
+                return;
+            case LigaNames.itLiga:
+                this.sortButton.itLiga.map((elem, ind) => {
+                    if (ind === i) {
+                        elem.active = true;
+                        return;
+                    }
+                    elem.active = false;
+                });
+                return;
+        }
+    }
+
     getDataBliga(data: Standing.ResponseData): void {
         this.dataBLiga = data.body;
         this.statusLoadingBliga = data.ok;

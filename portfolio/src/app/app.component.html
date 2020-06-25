@@ -1,9 +1,5 @@
 <div class="app-layout">
-  <left-panel
-    class="left-part"
-    [class.hideLeftPanel]="hide"
-    [hide]="hide"
-  ></left-panel>
+  <left-panel class="left-part" [class.hideLeftPanel]="hide" [hide]="hide"></left-panel>
   <div class="delimiter" [class.hideLeft]="hide">
     <button class="toggle" (click)="togglePanel()">
       <mat-icon>{{
@@ -12,7 +8,6 @@
     </button>
   </div>
   <div class="content" [class.hideContent]="hide">
-    <top5-panel class="content-top-panel"></top5-panel>
     <div class="router">
       <router-outlet></router-outlet>
     </div>

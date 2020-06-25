@@ -1,6 +1,6 @@
-@import "../../../scss/vars/colors";
-@import "../../../scss/vars/fonts";
-@import "../../../scss/vars/sizes";
+@import "../../../../scss/vars/colors";
+@import "../../../../scss/vars/fonts";
+@import "../../../../scss/vars/sizes";
 
 $hight-card: 1rem;
 
@@ -66,9 +66,11 @@ $hight-card: 1rem;
 
         .sort-standing {
             display: flex;
-            position: absolute;
-            left: 1rem;
-            top: 0.5rem;
+            // position: absolute;
+            // left: 1rem;
+            // top: 0.5rem;
+            padding-left: 0.5rem;
+            margin-right: auto;
             height: $round-button-size;
             width: auto;
         }
@@ -81,11 +83,11 @@ $hight-card: 1rem;
             color: $white;
             font-size: $mat-subheading-1-font-size;
             outline: none;
-            margin: 0 0.2rem;
+            margin: 0.2rem;
             justify-content: center;
-            border-radius: 50%;
+            border-radius: 5rem;
             height: $round-button-size;
-            width: $round-button-size;
+            width: 5rem;
 
             &-active {
                 background-color: #242934;
@@ -129,13 +131,6 @@ $hight-card: 1rem;
             }
         }
 
-        //     display: flex;
-        // width: 13rem;
-        // height: 11rem;
-        // position: absolute;
-        // top: 4rem;
-        // right: 0rem;
-
         .logoLiga {
             background-color: $white;
             border-radius: 0.5rem;
@@ -155,7 +150,7 @@ $hight-card: 1rem;
             position: absolute;
             top: 0;
             z-index: 2;
-            width: 100%;
+            width: calc(100% - 1rem);
         }
 
         .chart {

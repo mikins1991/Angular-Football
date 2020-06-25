@@ -1,0 +1,79 @@
+@import "../../../scss/vars/colors";
+@import "../../../scss/vars/fonts";
+
+:host {
+    .content-wrapper {
+        margin: 2rem 1rem 0;
+        .content-top-panel {
+            display: flex;
+            margin: 3rem 1rem 1.5rem 1rem;
+        }
+        .top-panel {
+            &-menu {
+                display: flex;
+                //   margin-left: 1rem;
+                justify-content: space-between;
+            }
+            ::ng-deep {
+                .mat-tab-header {
+                    border: none;
+                }
+                .mat-tab-body-wrapper {
+                    height: 58rem;
+                }
+                mat-ink-bar {
+                    display: none;
+                }
+            }
+
+            ::ng-deep .mat-tab-group[mat-stretch-tabs] > .mat-tab-header .mat-tab-label {
+                display: flex;
+                align-items: center;
+                background-color: #353b47;
+                box-shadow: -2px -2px 4px #4c5463, 2px 2px 4px #1f2427;
+                border-radius: 0.8rem;
+                color: $white !important;
+                display: flex;
+                height: 3.5rem;
+                font-size: $mat-subheading-1-font-size;
+                font-weight: 400;
+                outline: none;
+                opacity: 1;
+                margin: 1rem 1rem;
+                text-align: left;
+                width: 20%;
+
+                &-active {
+                    background-color: #242934;
+                    color: $text-active !important;
+                    font-weight: 400 !important;
+
+                    cursor: pointer;
+                    box-shadow: inset -2px -2px 4px #4c5463, inset 2px 2px 4px #191d28;
+                }
+
+                &:hover {
+                    background-color: #303644;
+                    color: $text-active;
+                    cursor: pointer;
+                    box-shadow: inset -2px -2px 4px #4c5463, inset 2px 2px 4px #191d28;
+                }
+
+                .logoLiga {
+                    background-color: $white;
+                    border-radius: 0.5rem;
+                    margin: 0 1rem;
+                    height: 2rem;
+                    width: 2rem;
+
+                    &-img {
+                        border-radius: 0.5rem;
+
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

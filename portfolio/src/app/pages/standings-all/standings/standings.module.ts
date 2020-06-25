@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { StandingsComponent } from './standings.component';
 import { StandingsContainer } from './standings.container';
 import { ApiFootbalService } from 'src/API/api.service';
 import { TableModule } from 'src/app/shared/components/table/table.module';
@@ -10,6 +9,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { ChartStandingsV2Component } from './chart-standings-v2/chart-standings-v2.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { StandingsComponent } from './standings.component';
+import { StandingsRouterModule } from './standings.routes';
 @NgModule({
     declarations: [ StandingsComponent, StandingsContainer, ChartsStandingsComponent, ChartStandingsV2Component ],
     imports: [
@@ -18,7 +19,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
         ResultCardModule,
         MatIconModule,
         MatProgressSpinnerModule,
-        MatProgressBarModule
+        MatProgressBarModule,
+        StandingsRouterModule
     ],
     exports: [ StandingsContainer ],
     providers: [ ApiFootbalService ]

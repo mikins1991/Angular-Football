@@ -1,29 +1,11 @@
 import { Page } from './left-panel.interface';
 import { LigaNames } from './liga.const';
 
-export const PAGES: Page[] = [
-    {
-        title: 'Matches',
-        icon: 'sports_soccer',
-        path: 'matches'
-    },
-    {
-        title: 'Standings',
-        icon: 'sort',
-        path: 'standings'
-    },
-    {
-        title: 'Statistics',
-        icon: 'trending_up',
-        path: 'statistics'
-    }
-];
-
 export const TABS: Page[] = [
     {
         title: 'TOP 5',
         icon: '../../../../assets/img/liga/top-5-png-4.png',
-        path: 'top5',
+        path: '/top5',
         active: true
     },
     {
@@ -55,5 +37,26 @@ export const TABS: Page[] = [
         icon: '../../../../assets/img/liga/liga-1.png',
         path: 'ligue1',
         active: false
+    }
+];
+
+export const PAGES: Page[] = [
+    {
+        title: 'Matches',
+        icon: 'sports_soccer',
+        path: 'matches',
+        tabs: TABS
+    },
+    {
+        title: 'Standings',
+        icon: 'sort',
+        path: 'standings',
+        tabs: TABS
+    },
+    {
+        title: 'Statistics',
+        icon: 'trending_up',
+        path: 'statistics',
+        tabs: TABS
     }
 ];

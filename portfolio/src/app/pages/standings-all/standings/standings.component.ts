@@ -1,6 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, Input } from '@angular/core';
 import { ApiFootbalService } from 'src/API/api.service';
-import { take } from 'rxjs/internal/operators/take';
 import { TABS } from 'src/app/shared/components/shared/left-panel.config';
 import { Standing } from './interface/standing.interface';
 import { SPINNER_CONFIG } from 'src/app/shared/components/shared/spinner-config';
@@ -14,16 +13,16 @@ import { LigaNames, HideCadr, SortButton } from 'src/app/shared/components/share
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StandingsComponent implements OnInit {
-    dataBLiga: Standing.DataLiga;
-    dataAPL: Standing.DataLiga;
-    dataFrLiga: Standing.DataLiga;
-    dataSeriaAIt: Standing.DataLiga;
-    dataPrimeraSpain: Standing.DataLiga;
-    statusLoadingAPL: boolean;
-    statusLoadingBliga: boolean;
-    statusLoadingSeriaAIt: boolean;
-    statusLoadingFrLiga: boolean;
-    statusLoadingPrimeraSpain: boolean;
+    @Input() dataSeriaAIt: Standing.DataLiga;
+    @Input() statusLoadingSeriaAIt: boolean;
+    @Input() dataBLiga: Standing.DataLiga;
+    @Input() dataAPL: Standing.DataLiga;
+    @Input() dataFrLiga: Standing.DataLiga;
+    @Input() dataPrimeraSpain: Standing.DataLiga;
+    @Input() statusLoadingAPL: boolean;
+    @Input() statusLoadingBliga: boolean;
+    @Input() statusLoadingFrLiga: boolean;
+    @Input() statusLoadingPrimeraSpain: boolean;
     sortIndex;
 
     hide = HideCadr;
@@ -31,11 +30,6 @@ export class StandingsComponent implements OnInit {
         change: 'Change size'
     };
     sortButton = SortButton;
-    sortStandings = [
-        { title: 'TOTAL', name: 'T', active: true },
-        { title: 'HOME', name: 'H', active: false },
-        { title: 'AWAY', name: 'A', active: false }
-    ];
     readonly LigaNames = LigaNames;
     readonly spinerConfig = SPINNER_CONFIG;
     readonly Liga = TABS;
@@ -74,7 +68,7 @@ export class StandingsComponent implements OnInit {
                     }
                     elem.active = false;
                 });
-                console.log('StandingsComponent -> sortStanding -> this.sortButton', this.sortButton);
+
                 return;
             case LigaNames.laLiga:
                 this.sortButton.laLiga.map((elem, ind) => {
@@ -116,64 +110,5 @@ export class StandingsComponent implements OnInit {
         }
     }
 
-    getDataBliga(data: Standing.ResponseData): void {
-        this.dataBLiga = data.body;
-        this.statusLoadingBliga = data.ok;
-
-        this.crdf.detectChanges();
-    }
-
-    getDataAPL(data: Standing.ResponseData): void {
-        this.dataAPL = data.body;
-        // setTimeout(() => {
-        this.statusLoadingAPL = data.ok;
-        // }, 1000)
-        this.crdf.detectChanges();
-    }
-
-    getFrLiga(data: Standing.ResponseData): void {
-        this.dataFrLiga = data.body;
-        this.statusLoadingFrLiga = data.ok;
-        console.log('StandingsComponent -> getFrLiga -> this.statusLoadingFrLiga', this.statusLoadingFrLiga);
-
-        this.crdf.detectChanges();
-    }
-
-    getSeriaAIt(data: Standing.ResponseData): void {
-        this.dataSeriaAIt = data.body;
-        // setTimeout(() => {
-        this.statusLoadingSeriaAIt = data.ok;
-        // }, 500);
-
-        this.crdf.detectChanges();
-    }
-
-    getPrimeraSpain(data) {
-        this.dataPrimeraSpain = data.body;
-        this.statusLoadingPrimeraSpain = data.ok;
-
-        this.crdf.detectChanges();
-    }
-
-    ngOnInit(): void {
-        this.apiService.getAplTable().pipe(take(1)).subscribe((data) => {
-            this.getDataAPL(data);
-        });
-
-        this.apiService.getPrimeraSpainTable().pipe(take(1)).subscribe((data) => {
-            this.getPrimeraSpain(data);
-        });
-
-        this.apiService.getBligaTable().pipe(take(1)).subscribe((data) => {
-            this.getDataBliga(data);
-        });
-
-        this.apiService.getFrLiga1Table().pipe(take(1)).subscribe((data) => {
-            this.getFrLiga(data);
-        });
-
-        this.apiService.getSeriaAItTable().pipe(take(1)).subscribe((data) => {
-            this.getSeriaAIt(data);
-        });
-    }
+    ngOnInit(): void {}
 }

@@ -52,9 +52,17 @@ export class ApiFootbalService {
         });
     }
 
+    // http://api.football-data.org/v2/matches
     // all http://api.football-data.org/v2/competitions/
     getAllCompetitions(): Observable<any> {
         return this.httpClient.get<any>('http://api.football-data.org/v2/competitions', {
+            headers: this.headers,
+            observe: 'response'
+        });
+    }
+
+    getMatchTable(): Observable<any> {
+        return this.httpClient.get<any>('http://api.football-data.org/v2/matches', {
             headers: this.headers,
             observe: 'response'
         });

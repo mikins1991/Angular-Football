@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
-import { TABS } from '../shared/left-panel.config';
+
 import { ActivatedRoute } from '@angular/router';
+import { TABS } from '../constants/left-panel.config';
 
 @Component({
     selector: 'top5-panel-component',
@@ -10,14 +11,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class Top5PanelComponent implements OnInit {
     @Input() templateSelectors: string;
-    tabsLiga = TABS;
+    readonly tabsLiga = TABS;
     constructor(private route: ActivatedRoute) {}
-
-    // clickLiga(title) {
-    //   this.tabsLiga.forEach((elem) => {
-    //     elem.title === title ? (elem.active = true) : (elem.active = false);
-    //   });
-    // }
 
     ngOnInit(): void {}
 }

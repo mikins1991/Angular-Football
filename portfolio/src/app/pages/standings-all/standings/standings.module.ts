@@ -10,7 +10,7 @@ import { ChartStandingsV2Component } from './chart-standings-v2/chart-standings-
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { StandingsComponent } from './standings.component';
-import { StandingsRouterModule } from './standings.routes';
+
 @NgModule({
     declarations: [ StandingsComponent, StandingsContainer, ChartsStandingsComponent, ChartStandingsV2Component ],
     imports: [
@@ -19,8 +19,7 @@ import { StandingsRouterModule } from './standings.routes';
         ResultCardModule,
         MatIconModule,
         MatProgressSpinnerModule,
-        MatProgressBarModule,
-        StandingsRouterModule
+        MatProgressBarModule
     ],
     exports: [ StandingsContainer ],
     providers: [ ApiFootbalService ]

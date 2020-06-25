@@ -15,7 +15,7 @@ import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import { MapDataHelper } from '../helper/map-data-helper';
-import { LigaNames } from 'src/app/shared/components/shared/liga.const';
+import { LigaNames } from 'src/app/shared/components/constants/liga.const';
 
 @Component({
     selector: 'charts-standings',
@@ -29,7 +29,6 @@ export class ChartsStandingsComponent implements OnInit, OnDestroy, OnChanges, A
 
     @ViewChild('chart', { static: true })
     chartRef: ElementRef;
-
     colorSeriasMin: string;
     colorSeriasMax: string;
 
@@ -40,9 +39,6 @@ export class ChartsStandingsComponent implements OnInit, OnDestroy, OnChanges, A
     ngOnChanges(changes: SimpleChanges): void {
         if (changes.data && changes.data.currentValue) {
             this.createColor(this.data.competition.name);
-            const newdata = this.data.standings[0].table.map((element) => {
-                element.name = element.team.name;
-            });
 
             const dataChart = MapDataHelper.mapingDataStandings(this.data.standings[0].table);
 

@@ -8,7 +8,7 @@
             <img class="logoLiga-img" src="{{ Liga[1].icon }}" />
           </div>
           {{ dataAPL.competition.name }}
-          <button class="toggle" title="{{titleButtons.change}}" (click)="togglePanel(Liga[1].title)">
+          <button class="toggle" title="{{titleButtons}}" (click)="togglePanel(Liga[1].title)">
             <mat-icon>{{ hide.apl ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
           </button>
         </div>
@@ -19,9 +19,6 @@
           </button>
         </div>
         <charts-standings class="chart" [data]="dataAPL" [sortIndex]="sortIndex"> </charts-standings>
-        <!-- <div class="logoLiga a1">
-          <img class="logoLiga-img" src="{{ Liga[1].icon }}" />
-        </div> -->
       </ng-container>
       <ng-template #aplSpinner>
         <mat-progress-spinner class="spiner" [mode]="spinerConfig.mode" [value]="spinerConfig.value">
@@ -38,7 +35,7 @@
             <img class="logoLiga-img" src="{{ Liga[2].icon }}" />
           </div>
           {{ dataPrimeraSpain.competition.name }}
-          <button class="toggle" title="{{titleButtons.change}}" (click)="togglePanel(Liga[2].title)">
+          <button class="toggle" title="{{titleButtons}}" (click)="togglePanel(Liga[2].title)">
             <mat-icon>{{ hide.laLiga ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
           </button>
         </div>
@@ -70,7 +67,7 @@
             <img class="logoLiga-img" src="{{ Liga[3].icon }}" />
           </div>
           {{ dataSeriaAIt.competition.name }}
-          <button class="toggle" title="{{titleButtons.change}}" (click)="togglePanel(Liga[3].title)">
+          <button class="toggle" title="{{titleButtons}}" (click)="togglePanel(Liga[3].title)">
             <mat-icon>{{ hide.itLiga ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
           </button>
         </div>
@@ -98,7 +95,7 @@
             <img class="logoLiga-img" src="{{ Liga[4].icon }}" />
           </div>
           {{ dataBLiga.competition.name  }}
-          <button class="toggle" title="{{titleButtons.change}}" (click)="togglePanel(Liga[4].title)">
+          <button class="toggle" title="{{titleButtons}}" (click)="togglePanel(Liga[4].title)">
             <mat-icon>{{ hide.bLiga ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
           </button>
         </div>
@@ -126,7 +123,7 @@
             <img class="logoLiga-img" src="{{ Liga[5].icon }}" />
           </div>
           {{ dataFrLiga.competition.name }}
-          <button class="toggle" title="{{titleButtons.change}}" (click)="togglePanel(Liga[5].title)">
+          <button class="toggle" title="{{titleButtons}}" (click)="togglePanel(Liga[5].title)">
             <mat-icon>{{ hide.frLiga ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
           </button>
         </div>

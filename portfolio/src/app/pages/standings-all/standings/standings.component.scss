@@ -5,12 +5,6 @@
 $hight-card: 1rem;
 
 :host {
-    -ms-overflow-style: none; /* IE 10+ */
-    ::-webkit-scrollbar {
-        width: 0px; /* ширина scrollbar'a */
-        background: transparent;
-    }
-
     .content-wrapper {
         height: 100%;
         width: 100%;
@@ -18,7 +12,6 @@ $hight-card: 1rem;
         flex-wrap: wrap;
         justify-content: space-between;
         position: relative;
-        // overflow: scroll;
 
         &-chart-top {
             display: flex;
@@ -40,7 +33,6 @@ $hight-card: 1rem;
             color: $white;
             display: flex;
             flex-direction: column;
-            // height: 100%;
             font-size: $mat-subheading-1-font-size;
             outline: none;
             position: relative;
@@ -66,9 +58,6 @@ $hight-card: 1rem;
 
         .sort-standing {
             display: flex;
-            // position: absolute;
-            // left: 1rem;
-            // top: 0.5rem;
             padding-left: 0.5rem;
             margin-right: auto;
             height: $round-button-size;

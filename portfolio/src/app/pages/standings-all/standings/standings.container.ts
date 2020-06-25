@@ -1,7 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
-import { ApiFootbalService } from 'src/API/api.service';
-import { take } from 'rxjs/internal/operators/take';
-import { Observable } from 'rxjs';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { Standing } from './interface/standing.interface';
 
 @Component({
@@ -22,8 +19,7 @@ import { Standing } from './interface/standing.interface';
     </standings-container>`,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class StandingsContainer implements OnInit {
-    constructor(private apiService: ApiFootbalService) {}
+export class StandingsContainer {
     @Input() dataSeriaAIt: Standing.DataLiga;
     @Input() statusLoadingSeriaAIt: boolean;
     @Input() dataBLiga: Standing.DataLiga;
@@ -34,6 +30,4 @@ export class StandingsContainer implements OnInit {
     @Input() statusLoadingBliga: boolean;
     @Input() statusLoadingFrLiga: boolean;
     @Input() statusLoadingPrimeraSpain: boolean;
-
-    ngOnInit(): void {}
 }

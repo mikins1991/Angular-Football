@@ -12,17 +12,21 @@ $top-hight: 7.5rem;
         display: flex;
         height: 100%;
         width: 100%;
-        .left-part {
+
+        .left-panel {
+            animation: slide-right 2s ease;
             background-color: $left-panel-primery;
             height: 100%;
             left: 0;
             position: absolute;
             width: $left-panel-width;
         }
+
         .hideLeftPanel {
             position: absolute;
             left: -12rem;
         }
+
         .hideLeft {
             margin: 1rem 0 1rem 4rem !important;
         }
@@ -32,11 +36,8 @@ $top-hight: 7.5rem;
             display: flex;
             width: calc(100% - #{$left-panel-width + 1rem});
             padding: 0.5rem;
-            // &-top-panel {
-            // display: flex;
-            // margin: 3rem 1rem 1.5rem 1rem;
-            // }
         }
+
         .hideContent {
             width: calc(100% - #{$left-panel-width-hide + 1rem});
         }
@@ -48,6 +49,7 @@ $top-hight: 7.5rem;
             box-shadow: inset -2px -2px 4px #4c5463, inset 2px 2px 4px #191d28;
             width: 0.5rem;
         }
+
         .toggle {
             @include round-button;
 
@@ -55,11 +57,22 @@ $top-hight: 7.5rem;
                 @include round-button-icon(1rem);
             }
         }
+
         .router {
             height: 100%;
             width: 100%;
-            // margin: 0 1rem;
-            // height: calc(100% - #{$top-hight});
+        }
+
+        @keyframes slide-right {
+            0% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
     }
 }

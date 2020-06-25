@@ -1,12 +1,10 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, Input } from '@angular/core';
-import { ApiFootbalService } from 'src/API/api.service';
-import { TABS } from 'src/app/shared/components/shared/left-panel.config';
+import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 import { Standing } from './interface/standing.interface';
-import { SPINNER_CONFIG } from 'src/app/shared/components/shared/spinner-config';
-import { LigaNames, HideCadr, SortButton } from 'src/app/shared/components/shared/liga.const';
+import { HideCadr, SortButton, LigaNames } from 'src/app/shared/components/constants/liga.const';
+import { SPINNER_CONFIG } from 'src/app/shared/components/constants/spinner-config';
+import { TABS } from 'src/app/shared/components/constants/left-panel.config';
 
 @Component({
-    // tslint:disable-next-line: component-selector
     selector: 'standings-container',
     templateUrl: './standings.component.html',
     styleUrls: [ './standings.component.scss' ],
@@ -23,18 +21,16 @@ export class StandingsComponent implements OnInit {
     @Input() statusLoadingBliga: boolean;
     @Input() statusLoadingFrLiga: boolean;
     @Input() statusLoadingPrimeraSpain: boolean;
-    sortIndex;
 
+    sortIndex: { title: string; index: number };
     hide = HideCadr;
-    titleButtons = {
-        change: 'Change size'
-    };
+    titleButtons: string = 'Change size';
     sortButton = SortButton;
     readonly LigaNames = LigaNames;
     readonly spinerConfig = SPINNER_CONFIG;
     readonly Liga = TABS;
 
-    constructor(private apiService: ApiFootbalService, private crdf: ChangeDetectorRef) {}
+    constructor() {}
 
     togglePanel(title: string): void {
         switch (title) {

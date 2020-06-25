@@ -1,8 +1,8 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { TABS } from 'src/app/shared/components/shared/left-panel.config';
 import { ApiFootbalService } from 'src/API/api.service';
 import { take } from 'rxjs/internal/operators/take';
 import { Standing } from './standings/interface/standing.interface';
+import { TABS } from 'src/app/shared/components/constants/left-panel.config';
 
 @Component({
     selector: 'standings-all',
@@ -32,16 +32,13 @@ export class StandingsAllComponent implements OnInit {
 
     getDataAPL(data: Standing.ResponseData): void {
         this.dataAPL = data.body;
-        // setTimeout(() => {
         this.statusLoadingAPL = data.ok;
-        // }, 1000)
         this.crdf.detectChanges();
     }
 
     getFrLiga(data: Standing.ResponseData): void {
         this.dataFrLiga = data.body;
         this.statusLoadingFrLiga = data.ok;
-        console.log('StandingsComponent -> getFrLiga -> this.statusLoadingFrLiga', this.statusLoadingFrLiga);
 
         this.crdf.detectChanges();
     }
@@ -54,9 +51,7 @@ export class StandingsAllComponent implements OnInit {
     }
     getSeriaAIt(data: Standing.ResponseData): void {
         this.dataSeriaAIt = data.body;
-        // setTimeout(() => {
         this.statusLoadingSeriaAIt = data.ok;
-        // }, 500);
 
         this.crdf.detectChanges();
     }

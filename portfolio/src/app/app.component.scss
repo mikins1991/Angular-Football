@@ -7,67 +7,72 @@ $left-panel-width-hide: 4rem;
 $top-hight: 7.5rem;
 
 :host {
-  .app-layout {
-    background: linear-gradient(
-      125.42deg,
-      $background-color-min,
-      $background-color-max
-    );
-    display: flex;
-    height: 100%;
-    width: 100%;
-
-    .left-part {
-      background-color: $left-panel-primery;
-      height: 100%;
-      left: 0;
-      position: absolute;
-      width: $left-panel-width;
-    }
-
-    .hideLeftPanel {
-      position: absolute;
-      left: -12rem;
-    }
-
-    .hideLeft {
-      margin: 1rem 0 1rem 4rem !important;
-    }
-
-    .content {
-      position: relative;
-      width: calc(100% - #{$left-panel-width + 1rem});
-      padding: 0.5rem;
-
-      &-top-panel {
+    .app-layout {
+        background: linear-gradient(125.42deg, $background-color-min, $background-color-max);
         display: flex;
-        margin: 3rem 1rem 1.5rem 1rem;
-      }
-    }
+        height: 100%;
+        width: 100%;
 
-    .hideContent {
-      width: calc(100% - #{$left-panel-width-hide + 1rem});
-    }
+        .left-panel {
+            animation: slide-right 2s ease;
+            background-color: $left-panel-primery;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            width: $left-panel-width;
+        }
 
-    .delimiter {
-      margin-left: 15rem;
-      position: relative;
+        .hideLeftPanel {
+            position: absolute;
+            left: -12rem;
+        }
 
-      background: #242934;
-      box-shadow: inset -2px -2px 4px #4c5463, inset 2px 2px 4px #191d28;
-      width: 0.5rem;
-    }
+        .hideLeft {
+            margin: 1rem 0 1rem 4rem !important;
+        }
 
-    .toggle {
-      @include round-button;
-      mat-icon {
-        @include round-button-icon(1rem);
-      }
-    }
+        .content {
+            position: relative;
+            display: flex;
+            width: calc(100% - #{$left-panel-width + 1rem});
+            padding: 0.5rem;
+        }
 
-    .router {
-      margin: 0 1rem;
-      height: calc(100% - #{$top-hight});
+        .hideContent {
+            width: calc(100% - #{$left-panel-width-hide + 1rem});
+        }
+
+        .delimiter {
+            margin-left: 15rem;
+            position: relative;
+            background: #242934;
+            box-shadow: inset -2px -2px 4px #4c5463, inset 2px 2px 4px #191d28;
+            width: 0.5rem;
+        }
+
+        .toggle {
+            @include round-button;
+
+            mat-icon {
+                @include round-button-icon(1rem);
+            }
+        }
+
+        .router {
+            height: 100%;
+            width: 100%;
+        }
+
+        @keyframes slide-right {
+            0% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
     }
-  }
 }

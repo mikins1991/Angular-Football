@@ -15,6 +15,7 @@ import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import { MapDataHelper } from '../helper/map-data-helper';
+import { LigaNames } from 'src/app/shared/components/constants/liga.const';
 
 @Component({
     selector: 'charts-standings',
@@ -24,25 +25,43 @@ import { MapDataHelper } from '../helper/map-data-helper';
 })
 export class ChartsStandingsComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
     @Input() data: any;
+    @Input() sortIndex: any;
 
     @ViewChild('chart', { static: true })
     chartRef: ElementRef;
+    colorSeriasMin: string;
+    colorSeriasMax: string;
 
     constructor(private zone: NgZone) {}
 
     private chart: am4charts.XYChart;
-    private series1: am4charts.ColumnSeries;
-    private labels: am4charts.LineSeries;
 
     ngOnChanges(changes: SimpleChanges): void {
         if (changes.data && changes.data.currentValue) {
-            const newdata = this.data.standings[0].table.map((element) => {
-                element.name = element.team.name;
-            });
+            this.createColor(this.data.competition.name);
 
             const dataChart = MapDataHelper.mapingDataStandings(this.data.standings[0].table);
 
             this.createChart(dataChart);
+        }
+        if (changes.sortIndex && changes.sortIndex.currentValue) {
+            if (this.sortIndex.title === this.data.competition.name) {
+                const dataChart = MapDataHelper.mapingDataStandings(this.data.standings[this.sortIndex.index].table);
+                this.createChart(dataChart);
+            }
+        }
+    }
+
+    private createColor(nameLiga: string) {
+        switch (nameLiga) {
+            case LigaNames.apl:
+                this.colorSeriasMin = '#F2C6F5';
+                this.colorSeriasMax = '#38003D';
+                return;
+            case LigaNames.laLiga:
+                this.colorSeriasMin = '#FF0000';
+                this.colorSeriasMax = '#901480';
+                return;
         }
     }
 
@@ -62,14 +81,14 @@ export class ChartsStandingsComponent implements OnInit, OnDestroy, OnChanges, A
         });
         categoryAxis.renderer.labels.template.fill = am4core.color('#ffffff');
         categoryAxis.renderer.grid.template.strokeOpacity = 0;
-        categoryAxis.renderer.minGridDistance = 5;
+        categoryAxis.renderer.minGridDistance = 15;
         categoryAxis.renderer.labels.template.dy = 35;
+        categoryAxis.fontSize = 14;
         categoryAxis.renderer.tooltip.dy = 15;
 
         const valueAxis = this.chart.yAxes.push(new am4charts.ValueAxis());
         valueAxis.renderer.inside = true;
-        // valueAxis.renderer.labels.template.fillOpacity = 0.3;
-        valueAxis.renderer.labels.template.dx = -15;
+        valueAxis.renderer.labels.template.dx = -25;
         valueAxis.renderer.grid.template.strokeOpacity = 0;
         valueAxis.min = 0;
         valueAxis.cursorTooltipEnabled = false;
@@ -79,9 +98,9 @@ export class ChartsStandingsComponent implements OnInit, OnDestroy, OnChanges, A
         const series = this.chart.series.push(new am4charts.ColumnSeries());
         series.dataFields.valueY = 'points';
         series.dataFields.categoryX = 'position';
-        series.tooltipText = 'Points: {valueY.value}';
+        series.tooltipText = '{name}: {valueY.value} points';
         series.tooltip.pointerOrientation = 'vertical';
-        series.tooltip.dy = -20;
+        series.tooltip.dy = -35;
         series.columnsContainer.zIndex = 1;
 
         const columnTemplate = series.columns.template;
@@ -90,10 +109,14 @@ export class ChartsStandingsComponent implements OnInit, OnDestroy, OnChanges, A
         columnTemplate.column.cornerRadius(60, 60, 10, 10);
         columnTemplate.strokeOpacity = 0;
 
-        series.columns.template.adapter.add('fill', (fill, target) => {
-            const color = this.chart.colors.getIndex(target.dataItem.index + 5);
-            return color;
+        series.heatRules.push({
+            target: columnTemplate,
+            property: 'fill',
+            dataField: 'valueY',
+            min: am4core.color(this.colorSeriasMin),
+            max: am4core.color(this.colorSeriasMax)
         });
+
         series.mainContainer.mask = undefined;
 
         const cursor = new am4charts.XYCursor();
@@ -102,12 +125,12 @@ export class ChartsStandingsComponent implements OnInit, OnDestroy, OnChanges, A
         cursor.lineY.disabled = true;
         cursor.behavior = 'none';
 
-        const bullet = columnTemplate.createChild(am4charts.CircleBullet);
-        bullet.circle.radius = 20;
+        const bullet: any = columnTemplate.createChild(am4charts.CircleBullet);
+        bullet.circle.radius = 15;
         bullet.valign = 'bottom';
         bullet.align = 'center';
         bullet.isMeasured = true;
-        // bullet.mouseEnabled = false;
+        bullet.mouseEnabled = false;
         bullet.verticalCenter = 'bottom';
         bullet.interactionsEnabled = false;
 
@@ -115,26 +138,27 @@ export class ChartsStandingsComponent implements OnInit, OnDestroy, OnChanges, A
         const outlineCircle = bullet.createChild(am4core.Circle);
 
         outlineCircle.adapter.add('radius', (radius, target) => {
-            const circleBullet = target.parent;
+            const circleBullet: any = target.parent;
+
             return circleBullet.circle.pixelRadius + 3;
         });
 
         const image = bullet.createChild(am4core.Image);
-        image.width = 35;
-        image.height = 35;
+        image.width = 30;
+        image.height = 30;
         image.horizontalCenter = 'middle';
         image.verticalCenter = 'middle';
         image.propertyFields.href = 'logo';
 
-        // image.adapter.add('mask', function (mask, target) {
-        //   let circleBullet = target.parent;
-        //   return circleBullet.circle;
-        // });
+        image.adapter.add('mask', (mask, target) => {
+            const circleBullet: any = target.parent;
+            return circleBullet.circle;
+        });
 
         let previousBullet;
 
         this.chart.cursor.events.on('cursorpositionchanged', (event) => {
-            const dataItem = series.tooltipDataItem;
+            const dataItem: any = series.tooltipDataItem;
 
             if (dataItem.column) {
                 const bullet = dataItem.column.children.getIndex(1);

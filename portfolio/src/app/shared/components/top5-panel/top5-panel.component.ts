@@ -1,21 +1,18 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { TABS } from '../shared/left-panel.config';
+import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+
+import { ActivatedRoute } from '@angular/router';
+import { TABS } from '../constants/left-panel.config';
 
 @Component({
-  selector: 'top5-panel-component',
-  templateUrl: './top5-panel.component.html',
-  styleUrls: ['./top5-panel.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'top5-panel-component',
+    templateUrl: './top5-panel.component.html',
+    styleUrls: [ './top5-panel.component.scss' ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Top5PanelComponent implements OnInit {
-  tabsLiga = TABS;
-  constructor() {}
+    @Input() templateSelectors: string;
+    readonly tabsLiga = TABS;
+    constructor(private route: ActivatedRoute) {}
 
-  clickLiga(title) {
-    this.tabsLiga.forEach((elem) => {
-      elem.title === title ? (elem.active = true) : (elem.active = false);
-    });
-  }
-
-  ngOnInit(): void {}
+    ngOnInit(): void {}
 }

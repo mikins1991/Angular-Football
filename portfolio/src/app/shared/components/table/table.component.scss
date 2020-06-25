@@ -1,0 +1,19 @@
+:host {
+    table {
+        font-size: 0.5rem;
+        overflow: auto;
+    }
+
+    .example-container {
+        width: 12rem;
+        height: 10rem;
+        overflow: auto;
+    }
+    // .example-container
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    th.mat-sort-header-sorted {
+        color: wheat;
+    }
+}

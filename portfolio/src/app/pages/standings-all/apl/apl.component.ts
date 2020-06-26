@@ -13,13 +13,13 @@ export class APLComponent implements OnInit, OnChanges {
 
     hide = false;
     sortButton = SortButton;
-    sortIndex: number;
+    sortIndex: { index: number };
     readonly titleButtons: string = TitleButtons;
 
     constructor() {}
 
     sortStanding(i: number): void {
-        this.sortIndex = i;
+        this.sortIndex = { index: i };
 
         this.sortButton.apl.map((elem, ind) => {
             if (ind === i) {

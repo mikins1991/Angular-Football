@@ -24,7 +24,7 @@ import { Standing } from '../interface/standing.interface';
     styleUrls: [ './charts-standings.component.scss' ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ChartsStandingsComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
+export class ChartsStandingsComponent implements OnInit, OnDestroy, OnChanges {
     @Input() data: any;
     @Input() sortIndex: any;
 
@@ -179,17 +179,11 @@ export class ChartsStandingsComponent implements OnInit, OnDestroy, OnChanges, A
         });
     }
 
-    ngAfterViewInit() {
-        this.zone.runOutsideAngular(() => {});
-    }
-
     ngOnInit(): void {}
 
     ngOnDestroy() {
-        this.zone.runOutsideAngular(() => {
-            if (this.chart) {
-                this.chart.dispose();
-            }
-        });
+        if (this.chart) {
+            this.chart.dispose();
+        }
     }
 }

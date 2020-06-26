@@ -43,8 +43,20 @@
         border-bottom-color: $white !important;
     }
 
+    .name {
+        display: inline-block;
+    }
+
+    .mat-body p,
+    .mat-body-1 p,
+    .mat-typography p {
+        display: inline-block;
+    }
+
     .logo {
         height: 2rem;
+        vertical-align: middle;
+        margin-right: 0.5rem;
         width: 2rem;
     }
 

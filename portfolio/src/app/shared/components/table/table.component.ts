@@ -12,7 +12,7 @@ import { DisplayedColumns } from '../constants/table.config';
 })
 export class TableComponent implements OnInit, OnChanges {
     @Input() data: Standing.DataLiga;
-    @Input() sortIndex: number;
+    @Input() sortIndex: { index: number };
     @ViewChild(MatSort, { static: true })
     sort: MatSort;
     dataTable: Standing.Table[];
@@ -28,7 +28,7 @@ export class TableComponent implements OnInit, OnChanges {
             this.createTableData();
         }
         if (changes.sortIndex && changes.sortIndex.currentValue) {
-            this.dataTable = MapDataHelper.mapingDataStandings(this.data.standings[this.sortIndex].table);
+            this.dataTable = MapDataHelper.mapingDataStandings(this.data.standings[this.sortIndex.index].table);
             this.dataSource = new MatTableDataSource(this.dataTable);
 
             this.createTableData();

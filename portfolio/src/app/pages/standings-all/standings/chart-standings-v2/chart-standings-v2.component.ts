@@ -128,10 +128,8 @@ export class ChartStandingsV2Component implements OnInit, OnChanges, OnDestroy {
     ngOnInit(): void {}
 
     ngOnDestroy() {
-        this.zone.runOutsideAngular(() => {
-            if (this.chart) {
-                this.chart.dispose();
-            }
-        });
+        if (this.chart) {
+            this.chart.dispose();
+        }
     }
 }

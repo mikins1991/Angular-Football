@@ -1,6 +1,5 @@
 export const DisplayedColumns = [
     'position',
-    'logo',
     'name',
     'playedGames',
     'draw',

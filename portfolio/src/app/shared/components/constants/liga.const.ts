@@ -41,3 +41,5 @@ export const SortButton = {
         { title: 'AWAY', name: 'A', active: false }
     ]
 };
+
+export const TitleButtons = 'Change size';

@@ -6,7 +6,9 @@ import { Observable } from 'rxjs';
 export class ApiFootbalService {
     constructor(private httpClient: HttpClient) {}
     private _urlLiga: string = 'https://www.thesportsdb.com/api/v1/json/1/all_leagues.php';
-    private _urlClubsLiga: string = 'https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=English%20Premier%20League';
+    private _urlClubsLiga: string = 'https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=German%20Bundesliga';
+    //'https: //www.thesportsdb.com/api/v1/json/1/search_all_teams.php?s=Soccer&c=Spain';
+    //'https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=English%20Premier%20League';German Bundesliga
 
     getDataLiga(): Observable<any> {
         return this.httpClient.get<any>(this._urlLiga);

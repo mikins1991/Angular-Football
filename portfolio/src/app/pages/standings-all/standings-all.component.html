@@ -17,6 +17,7 @@
                     [statusLoadingBliga]="statusLoadingBliga" [statusLoadingFrLiga]="statusLoadingFrLiga"
                     [statusLoadingPrimeraSpain]="statusLoadingPrimeraSpain">
                 </standings>
+                <apl *ngIf="i === 1" [dataAPL]="dataAPL"></apl>
             </mat-tab>
 
         </mat-tab-group>

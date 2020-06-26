@@ -26,34 +26,16 @@ $hight-card: 1rem;
         }
 
         &-chart {
-            align-items: center;
-            background-color: #353b47;
-            box-shadow: -2px -2px 4px #4c5463, 2px 2px 4px #1f2427;
-            border-radius: 0.8rem;
-            color: $white;
-            display: flex;
-            flex-direction: column;
-            font-size: $mat-subheading-1-font-size;
-            outline: none;
-            position: relative;
-            text-align: left;
+            @include card-standart();
             width: calc(50% - 1rem);
-            margin: 0.5rem 0.5rem;
         }
 
         .title {
-            display: flex;
-            height: 2rem;
-            font-size: 1rem;
-            font-weight: 700;
-            height: 2rem;
-            justify-content: center;
-            margin-top: 0.5rem;
-            line-height: 1.75rem;
-            padding: 0.25rem;
-            position: relative;
-            text-align: center;
-            width: 100%;
+            @include title-card();
+        }
+
+        .toggle {
+            @include toogle-button();
         }
 
         .sort-standing {
@@ -65,59 +47,7 @@ $hight-card: 1rem;
         }
 
         .sortBut {
-            align-items: center;
-            background: #353b47;
-            border: none;
-            box-shadow: -2px -2px 4px #4c5463, 2px 2px 8px #1f2427;
-            color: $white;
-            font-size: $mat-subheading-1-font-size;
-            outline: none;
-            margin: 0.2rem;
-            justify-content: center;
-            border-radius: 5rem;
-            height: $round-button-size;
-            width: 5rem;
-
-            &-active {
-                background-color: #242934;
-                color: $text-active;
-                cursor: pointer;
-                box-shadow: inset -4px -4px 10px #4c5463, inset 4px 4px 10px #191d28;
-            }
-
-            &:hover {
-                background-color: #303644;
-                color: $text-active;
-                cursor: pointer;
-                box-shadow: inset -4px -4px 10px #4c5463, inset 4px 4px 10px #191d28;
-            }
-        }
-
-        .toggle {
-            align-items: center;
-            background-color: $round-backgraund;
-            border: 0;
-            border-radius: 50%;
-            cursor: pointer;
-            height: $round-button-size;
-            justify-content: center;
-            outline: none;
-            width: $round-button-size;
-            position: absolute;
-            right: 1rem;
-            top: 0.5rem;
-            box-shadow: -4px -4px 10px #4c5463, 4px 4px 10px #1f2427;
-
-            &:hover {
-                background-color: $round-backgraund;
-                box-shadow: -1px -1px 5px #4c5463, 1px 1px 5px #1f2427;
-            }
-
-            mat-icon {
-                @include round-button-icon(1.5rem);
-                vertical-align: middle;
-                margin-left: -0.1rem;
-            }
+            @include sort-button();
         }
 
         .logoLiga {
@@ -135,11 +65,7 @@ $hight-card: 1rem;
         }
 
         .hideCard {
-            height: calc(100% - 1rem);
-            position: absolute;
-            top: 0;
-            z-index: 2;
-            width: calc(100% - 1rem);
+            @include hide-card();
         }
 
         .chart {

@@ -16,6 +16,7 @@ import am4themes_dark from '@amcharts/amcharts4/themes/dark';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import { MapDataHelper } from '../helper/map-data-helper';
 import { LigaNames } from 'src/app/shared/components/constants/liga.const';
+import { Standing } from '../interface/standing.interface';
 
 @Component({
     selector: 'chart-standings-v2',
@@ -67,7 +68,7 @@ export class ChartStandingsV2Component implements OnInit, OnChanges, OnDestroy {
                 return;
         }
     }
-    createChart(dataChart) {
+    createChart(dataChart: Standing.Table[]): void {
         am4core.useTheme(am4themes_dark);
         am4core.useTheme(am4themes_animated);
         this.chart = am4core.create(this.chartRef.nativeElement, am4charts.XYChart);

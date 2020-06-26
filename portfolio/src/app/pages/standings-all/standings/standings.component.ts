@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 import { Standing } from './interface/standing.interface';
-import { HideCadr, SortButton, LigaNames } from 'src/app/shared/components/constants/liga.const';
+import { HideCadr, SortButton, LigaNames, TitleButtons } from 'src/app/shared/components/constants/liga.const';
 import { SPINNER_CONFIG } from 'src/app/shared/components/constants/spinner-config';
 import { TABS } from 'src/app/shared/components/constants/left-panel.config';
 
@@ -24,8 +24,8 @@ export class StandingsComponent implements OnInit {
 
     sortIndex: { title: string; index: number };
     hide = HideCadr;
-    titleButtons: string = 'Change size';
     sortButton = SortButton;
+    readonly titleButtons: string = TitleButtons;
     readonly LigaNames = LigaNames;
     readonly spinerConfig = SPINNER_CONFIG;
     readonly Liga = TABS;

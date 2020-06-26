@@ -98,7 +98,7 @@ export class ChartsStandingsComponent implements OnInit, OnDestroy, OnChanges, A
         const series = this.chart.series.push(new am4charts.ColumnSeries());
         series.dataFields.valueY = 'points';
         series.dataFields.categoryX = 'position';
-        series.tooltipText = '{name}: {valueY.value} points';
+        series.tooltipText = '{name}: {valueY.value} points. Position - {categoryX}';
         series.tooltip.pointerOrientation = 'vertical';
         series.tooltip.dy = -35;
         series.columnsContainer.zIndex = 1;

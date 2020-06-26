@@ -16,6 +16,7 @@ import * as am4charts from '@amcharts/amcharts4/charts';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import { MapDataHelper } from '../helper/map-data-helper';
 import { LigaNames } from 'src/app/shared/components/constants/liga.const';
+import { Standing } from '../interface/standing.interface';
 
 @Component({
     selector: 'charts-standings',
@@ -23,7 +24,7 @@ import { LigaNames } from 'src/app/shared/components/constants/liga.const';
     styleUrls: [ './charts-standings.component.scss' ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ChartsStandingsComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
+export class ChartsStandingsComponent implements OnInit, OnDestroy, OnChanges {
     @Input() data: any;
     @Input() sortIndex: any;
 
@@ -65,7 +66,7 @@ export class ChartsStandingsComponent implements OnInit, OnDestroy, OnChanges, A
         }
     }
 
-    createChart(dataChart) {
+    createChart(dataChart: Standing.Table[]): void {
         this.chart = am4core.create(this.chartRef.nativeElement, am4charts.XYChart);
         this.chart.logo.height = -1500;
         this.chart.hiddenState.properties.opacity = 0;
@@ -178,17 +179,11 @@ export class ChartsStandingsComponent implements OnInit, OnDestroy, OnChanges, A
         });
     }
 
-    ngAfterViewInit() {
-        this.zone.runOutsideAngular(() => {});
-    }
-
     ngOnInit(): void {}
 
     ngOnDestroy() {
-        this.zone.runOutsideAngular(() => {
-            if (this.chart) {
-                this.chart.dispose();
-            }
-        });
+        if (this.chart) {
+            this.chart.dispose();
+        }
     }
 }

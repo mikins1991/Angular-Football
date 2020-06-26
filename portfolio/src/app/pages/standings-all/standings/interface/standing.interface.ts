@@ -46,4 +46,17 @@ export namespace Standing {
         team: { id: number; name: string; crestUrl: string };
         won: number;
     }
+
+    export interface Table {
+        name: string;
+        position: number;
+        logo: string;
+        points: number;
+        draw: number;
+        goalDifference: number;
+        goalsAgainst: number;
+        goalsFor: number;
+        lost: number;
+        playedGames: number;
+    }
 }

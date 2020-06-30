@@ -19,36 +19,41 @@ export class ApiFootbalService {
     // Token - api.football-data.org
     private headers = new HttpHeaders().set('X-Auth-Token', '4ad13c810fad400196e31b5eceb47efb');
 
-    // apl standings  http://api.football-data.org/v2/competitions/2021/standings
+    // apl real data standings  http://api.football-data.org/v2/competitions/2021/standings
     getAplTable(): Observable<any> {
-        return this.httpClient.get<any>('http://api.football-data.org/v2/competitions/2021/standings', {
+        return this.httpClient.get<any>('../assets/data/standingsAPL.json', {
             headers: this.headers,
             observe: 'response'
         });
     }
+
+    // spain real data standings http://api.football-data.org/v2/competitions/2014/standings
     getPrimeraSpainTable(): Observable<any> {
-        return this.httpClient.get<any>('http://api.football-data.org/v2/competitions/2014/standings', {
+        return this.httpClient.get<any>('../assets/data/standingsSpain.json', {
             headers: this.headers,
             observe: 'response'
         });
     }
 
+    // italy real data standings http://api.football-data.org/v2/competitions/2019/standings
     getSeriaAItTable(): Observable<any> {
-        return this.httpClient.get<any>('http://api.football-data.org/v2/competitions/2019/standings', {
+        return this.httpClient.get<any>('../assets/data/standingsItaly.json', {
             headers: this.headers,
             observe: 'response'
         });
     }
 
+    // Germany real data standings http://api.football-data.org/v2/competitions/2002/standings
     getBligaTable(): Observable<any> {
-        return this.httpClient.get<any>('http://api.football-data.org/v2/competitions/2002/standings', {
+        return this.httpClient.get<any>('../assets/data/standingsBundes.json', {
             headers: this.headers,
             observe: 'response'
         });
     }
 
+    // Germany real data standings http://api.football-data.org/v2/competitions/2015/standings
     getFrLiga1Table(): Observable<any> {
-        return this.httpClient.get<any>('http://api.football-data.org/v2/competitions/2015/standings', {
+        return this.httpClient.get<any>('../assets/data/standingsFrance.json', {
             headers: this.headers,
             observe: 'response'
         });
@@ -62,9 +67,10 @@ export class ApiFootbalService {
             observe: 'response'
         });
     }
-
+    //http://api.football-data.org/v2/matches
+    //http://api.football-data.org/v2/competitions/2002/teams
     getMatchTable(): Observable<any> {
-        return this.httpClient.get<any>('http://api.football-data.org/v2/matches', {
+        return this.httpClient.get<any>('http://api.football-data.org/v2/competitions/PL/scorers', {
             headers: this.headers,
             observe: 'response'
         });

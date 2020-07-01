@@ -1,0 +1,68 @@
+@import "../../../../scss/vars/colors";
+@import "../../../../scss/vars/fonts";
+@import "../../../../scss/vars/sizes";
+
+:host {
+    height: 100%;
+    width: 100%;
+
+    table {
+        font-size: 0.5rem;
+        overflow: auto;
+    }
+
+    .example-container {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+    }
+    // .example-container
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    th.mat-header-cell {
+        color: $white;
+    }
+
+    th.mat-sort-header-sorted {
+        color: wheat;
+    }
+
+    .mat-cell,
+    .mat-footer-cell,
+    .mat-sort-header-arrow {
+        color: $white;
+    }
+
+    mat-row,
+    mat-header-row,
+    mat-footer-row,
+    th.mat-header-cell,
+    td.mat-cell,
+    td.mat-footer-cell {
+        border-bottom-color: $white !important;
+    }
+
+    .name {
+        display: inline-block;
+    }
+
+    .mat-body p,
+    .mat-body-1 p,
+    .mat-typography p {
+        display: inline-block;
+    }
+
+    .logo {
+        height: 2rem;
+        vertical-align: middle;
+        margin-right: 0.5rem;
+        width: 2rem;
+    }
+
+    table.mat-table {
+        border-spacing: 0;
+        background-color: unset;
+        width: 100%;
+    }
+}

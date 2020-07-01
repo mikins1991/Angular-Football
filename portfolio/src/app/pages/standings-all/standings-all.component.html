@@ -1,0 +1,25 @@
+<div class="content-wrapper">
+
+    <div class="top-panel">
+        <mat-tab-group mat-stretch-tabs class="example-stretched-tabs" animationDuration="1000ms">
+            <mat-tab *ngFor="let tab of tabsLiga;let i = index" class="top-button">
+                <ng-template mat-tab-label>
+                    <div class="logoLiga">
+                        <img class="logoLiga-img" src="{{ tab.icon }}" />
+                    </div>
+                    {{tab.title}}
+                </ng-template>
+
+
+                <standings *ngIf="i === 0" [dataSeriaAIt]="dataSeriaAIt" [statusLoadingSeriaAIt]="statusLoadingSeriaAIt"
+                    [dataBLiga]="dataBLiga" [dataAPL]="dataAPL" [dataFrLiga]="dataFrLiga" [dataFrLiga]="dataFrLiga"
+                    [dataPrimeraSpain]="dataPrimeraSpain" [statusLoadingAPL]="statusLoadingAPL"
+                    [statusLoadingBliga]="statusLoadingBliga" [statusLoadingFrLiga]="statusLoadingFrLiga"
+                    [statusLoadingPrimeraSpain]="statusLoadingPrimeraSpain">
+                </standings>
+                <apl *ngIf="i === 1" [dataAPL]="dataAPL"></apl>
+            </mat-tab>
+
+        </mat-tab-group>
+    </div>
+</div>

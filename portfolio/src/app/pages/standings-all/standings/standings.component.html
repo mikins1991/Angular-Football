@@ -1,0 +1,145 @@
+<div class="content-wrapper">
+  <div class="content-wrapper-chart-top">
+
+    <div class="content-wrapper-chart " [class.hideCard]="hide.apl">
+      <ng-container *ngIf="statusLoadingAPL; else aplSpinner">
+        <div class="title">
+          <div class="logoLiga">
+            <img class="logoLiga-img" src="{{ Liga[1].icon }}" />
+          </div>
+          {{ dataAPL.competition.name }}
+          <button class="toggle" title="{{titleButtons}}" (click)="togglePanel(Liga[1].title)">
+            <mat-icon>{{ hide.apl ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
+          </button>
+        </div>
+        <div class="sort-standing">
+          <button class="sortBut" [class.sortBut-active]="sort.active" title="{{sort.title}}"
+            *ngFor="let sort of sortButton.apl; let i = index" (click)="sortStanding(Liga[1].title, i)">
+            {{sort.title}}
+          </button>
+        </div>
+        <charts-standings class="chart" [data]="dataAPL" [sortIndex]="sortIndex"> </charts-standings>
+      </ng-container>
+      <ng-template #aplSpinner>
+        <mat-progress-spinner class="spiner" [mode]="spinerConfig.mode" [value]="spinerConfig.value">
+        </mat-progress-spinner>
+      </ng-template>
+    </div>
+
+    <div class="content-wrapper-chart" [class.hideCard]="hide.laLiga" *ngIf="dataPrimeraSpain">
+      <ng-container *ngIf="statusLoadingPrimeraSpain; else primeraSpainSpinner">
+        <div class="title">
+
+          <div class="logoLiga">
+            <img class="logoLiga-img" src="{{ Liga[2].icon }}" />
+          </div>
+          {{ dataPrimeraSpain.competition.name }}
+          <button class="toggle" title="{{titleButtons}}" (click)="togglePanel(Liga[2].title)">
+            <mat-icon>{{ hide.laLiga ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
+          </button>
+        </div>
+        <div class="sort-standing">
+
+          <button class="sortBut" [class.sortBut-active]="sort.active" title="{{sort.title}}"
+            *ngFor="let sort of sortButton.laLiga; let i = index" (click)="sortStanding(Liga[2].title, i)">
+            {{sort.title}}
+          </button>
+        </div>
+        <charts-standings class="chart" [data]="dataPrimeraSpain" [sortIndex]='sortIndex'> </charts-standings>
+      </ng-container>
+      <ng-template #primeraSpainSpinner>
+        <mat-progress-spinner class="spiner" [mode]="spinerConfig.mode" [value]="spinerConfig.value">
+        </mat-progress-spinner>
+      </ng-template>
+    </div>
+
+
+  </div>
+  <div class="content-wrapper-chart-bottom">
+
+    <div class="content-wrapper-chart" [class.hideCard]="hide.itLiga" *ngIf="dataSeriaAIt">
+      <ng-container *ngIf="statusLoadingSeriaAIt; else seriaAItSpainSpinner">
+        <div class="title">
+
+
+          <div class="logoLiga">
+            <img class="logoLiga-img" src="{{ Liga[3].icon }}" />
+          </div>
+          {{ dataSeriaAIt.competition.name }}
+          <button class="toggle" title="{{titleButtons}}" (click)="togglePanel(Liga[3].title)">
+            <mat-icon>{{ hide.itLiga ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
+          </button>
+        </div>
+        <div class="sort-standing">
+          <button class="sortBut" [class.sortBut-active]="sort.active" title="{{sort.title}}"
+            *ngFor="let sort of sortButton.itLiga; let i = index" (click)="sortStanding(Liga[3].title, i)">
+            {{sort.title}}
+          </button>
+        </div>
+        <chart-standings-v2 class="chart" [data]="dataSeriaAIt" [sortIndex]='sortIndex'> </chart-standings-v2>
+      </ng-container>
+      <ng-template #seriaAItSpainSpinner>
+        <mat-progress-spinner class="spiner" [mode]="spinerConfig.mode" [value]="spinerConfig.value">
+        </mat-progress-spinner>
+      </ng-template>
+    </div>
+
+
+    <div class="content-wrapper-chart" [class.hideCard]="hide.bLiga" *ngIf="dataBLiga">
+      <ng-container *ngIf="statusLoadingBliga; else BligaSpainSpinner">
+
+        <div class="title">
+
+          <div class="logoLiga">
+            <img class="logoLiga-img" src="{{ Liga[4].icon }}" />
+          </div>
+          {{ dataBLiga.competition.name  }}
+          <button class="toggle" title="{{titleButtons}}" (click)="togglePanel(Liga[4].title)">
+            <mat-icon>{{ hide.bLiga ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
+          </button>
+        </div>
+        <div class="sort-standing">
+          <button class="sortBut" [class.sortBut-active]="sort.active" title="{{sort.title}}"
+            *ngFor="let sort of sortButton.bLiga; let i = index" (click)="sortStanding(Liga[4].title, i)">
+            {{sort.title}}
+          </button>
+        </div>
+        <chart-standings-v2 class="chart" [data]="dataBLiga" [sortIndex]='sortIndex'> </chart-standings-v2>
+      </ng-container>
+      <ng-template #BligaSpainSpinner>
+        <mat-progress-spinner class="spiner" [mode]="spinerConfig.mode" [value]="spinerConfig.value">
+        </mat-progress-spinner>
+      </ng-template>
+    </div>
+
+
+    <div class="content-wrapper-chart" [class.hideCard]="hide.frLiga" *ngIf="dataFrLiga">
+      <ng-container *ngIf="statusLoadingFrLiga; else FrLigaSpainSpinner">
+
+        <div class="title">
+
+          <div class="logoLiga">
+            <img class="logoLiga-img" src="{{ Liga[5].icon }}" />
+          </div>
+          {{ dataFrLiga.competition.name }}
+          <button class="toggle" title="{{titleButtons}}" (click)="togglePanel(Liga[5].title)">
+            <mat-icon>{{ hide.frLiga ? "fullscreen_exit" : "fullscreen" }}</mat-icon>
+          </button>
+        </div>
+        <div class="sort-standing">
+          <button class="sortBut" [class.sortBut-active]="sort.active" title="{{sort.title}}"
+            *ngFor="let sort of sortButton.frLiga; let i = index" (click)="sortStanding(Liga[5].title, i)">
+            {{sort.title}}
+          </button>
+        </div>
+        <chart-standings-v2 class="chart" [data]="dataFrLiga" [sortIndex]='sortIndex'> </chart-standings-v2>
+      </ng-container>
+      <ng-template #FrLigaSpainSpinner>
+        <mat-progress-spinner class="spiner" [mode]="spinerConfig.mode" [value]="spinerConfig.value">
+        </mat-progress-spinner>
+      </ng-template>
+    </div>
+
+  </div>
+
+</div>

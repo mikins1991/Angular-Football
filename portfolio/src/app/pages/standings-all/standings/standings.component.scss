@@ -1,0 +1,86 @@
+@import "../../../../scss/vars/colors";
+@import "../../../../scss/vars/fonts";
+@import "../../../../scss/vars/sizes";
+
+$hight-card: 1rem;
+
+:host {
+    .content-wrapper {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        position: relative;
+
+        &-chart-top {
+            display: flex;
+            width: 100%;
+            height: 50%;
+        }
+
+        &-chart-bottom {
+            display: flex;
+            width: 100%;
+            height: 50%;
+        }
+
+        &-chart {
+            @include card-standart();
+            width: calc(50% - 1rem);
+        }
+
+        .title {
+            @include title-card();
+        }
+
+        .toggle {
+            @include toogle-button();
+        }
+
+        .sort-standing {
+            display: flex;
+            padding-left: 0.5rem;
+            margin-right: auto;
+            height: $round-button-size;
+            width: auto;
+        }
+
+        .sortBut {
+            @include sort-button();
+        }
+
+        .logoLiga {
+            background-color: $white;
+            border-radius: 0.5rem;
+            margin: 0 1rem;
+            height: 2rem;
+            width: 2rem;
+
+            &-img {
+                border-radius: 0.5rem;
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        .hideCard {
+            @include hide-card();
+        }
+
+        .chart {
+            height: calc(100% - 2rem);
+            width: 100%;
+        }
+
+        ::ng-deep .mat-progress-spinner circle,
+        .mat-spinner circle {
+            stroke: $cart-color-min;
+        }
+
+        .spiner {
+            position: absolute;
+            top: 40%;
+        }
+    }
+}

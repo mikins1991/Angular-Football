@@ -1,0 +1,15 @@
+<div class="app-layout">
+  <left-panel class="left-panel" [class.hideLeftPanel]="hide" [hide]="hide"></left-panel>
+  <div class="delimiter" [class.hideLeft]="hide">
+    <button class="toggle" (click)="togglePanel()">
+      <mat-icon>{{
+        hide ? "keyboard_arrow_right" : "keyboard_arrow_left"
+      }}</mat-icon>
+    </button>
+  </div>
+  <div class="content" [class.hideContent]="hide">
+    <div class="router">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

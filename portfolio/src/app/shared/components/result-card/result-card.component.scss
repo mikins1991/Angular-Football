@@ -1,0 +1,75 @@
+@import "../../../../scss/vars/colors";
+@import "../../../../scss/vars/fonts";
+@import "../../../../scss/vars/sizes";
+
+$hight-card: 1rem;
+:host {
+  // .content-wrapper {
+  //   height: 100%;
+  //   width: 100%;
+  //   display: flex;
+  //   flex-flow: wrap;
+  //   justify-content: space-between;
+  //   position: relative;
+
+  .content-wrapper-chart {
+    align-items: center;
+    background-color: #353b47;
+    box-shadow: -2px -2px 4px #4c5463, 2px 2px 4px #1f2427;
+    border-radius: 0.8rem;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    height: 25rem;
+    font-size: $mat-subheading-1-font-size;
+    outline: none;
+    text-align: left;
+    width: 100%;
+    margin: 0.5rem 0.2rem;
+  }
+
+  .hideCard {
+    height: calc(100% - #{$hight-card});
+  }
+
+  .title {
+    height: 2rem;
+
+    font-size: 1rem;
+    font-weight: 700;
+    height: 2rem;
+    line-height: 1.75rem;
+    padding: 0.25rem;
+    position: relative;
+    text-align: center;
+    width: 100%;
+  }
+
+  .toggle {
+    align-items: center;
+    background-color: $round-backgraund;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    height: $round-button-size;
+    justify-content: center;
+    outline: none;
+    width: $round-button-size;
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    box-shadow: -4px -4px 10px #4c5463, 4px 4px 10px #1f2427;
+
+    &:hover {
+      background-color: $round-backgraund;
+      box-shadow: -1px -1px 5px #4c5463, 1px 1px 5px #1f2427;
+    }
+
+    mat-icon {
+      @include round-button-icon(1.5rem);
+      vertical-align: middle;
+      margin-left: -0.1rem;
+    }
+  }
+  // }
+}

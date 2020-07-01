@@ -1,0 +1,83 @@
+@import "../../../../scss/vars/colors";
+@import "../../../../scss/vars/fonts";
+@import "../../../../scss/vars/sizes";
+
+$hight-card-player: 20rem;
+
+:host {
+    .content-wrapper {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        position: relative;
+
+        &-left {
+            display: flex;
+            width: 50%;
+            height: 100%;
+        }
+
+        &-right {
+            display: flex;
+            width: 50%;
+            height: 100%;
+            flex-wrap: wrap;
+        }
+
+        &-rightcardplayer {
+            @include card-standart();
+            width: 100%;
+            height: $hight-card-player;
+        }
+
+        &-rightcard {
+            @include card-standart();
+            width: 100%;
+            height: calc(100% - #{$hight-card-player + 2rem});
+
+            .title {
+                @include title-card();
+            }
+
+            .toggle {
+                @include toogle-button();
+            }
+
+            .table {
+                height: calc(100% - 6rem);
+                width: 100%;
+            }
+        }
+
+        &-leftcard {
+            @include card-standart();
+            width: 100%;
+        }
+
+        .hideCard {
+            @include hide-card();
+            left: 0;
+        }
+
+        .sort-standing {
+            display: flex;
+            padding-left: 0.5rem;
+            margin-right: auto;
+            margin-bottom: 1rem;
+            height: $round-button-size;
+            width: auto;
+        }
+
+        .sortBut {
+            @include sort-button();
+        }
+
+        .player {
+            border-radius: 1rem;
+            height: 100%;
+            width: 100%;
+        }
+    }
+}

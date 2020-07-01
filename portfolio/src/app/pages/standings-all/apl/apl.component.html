@@ -1,0 +1,36 @@
+<div class="content-wrapper">
+    <div class="content-wrapper-left">
+
+
+        <div class="content-wrapper-leftcard">
+
+        </div>
+    </div>
+    <div class="content-wrapper-right" *ngIf="dataAPL">
+
+        <div class="content-wrapper-rightcardplayer">
+            <iframe class="player" width="560" height="315" src="https://www.youtube.com/embed/nvAdmr-s-aA"
+                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+        <div class="content-wrapper-rightcard" [class.hideCard]="hide">
+            <div class="title">
+                {{ dataAPL.competition.name }}
+                <button class="toggle" title="{{titleButtons}}" (click)="togglePanel()">
+                    <mat-icon>{{ hide? "fullscreen_exit" : "fullscreen" }}</mat-icon>
+                </button>
+            </div>
+            <div class="sort-standing">
+                <button class="sortBut" [class.sortBut-active]="sort.active" title="{{sort.title}}"
+                    *ngFor="let sort of sortButton.apl; let i = index" (click)="sortStanding(i)">
+                    {{sort.title}}
+                </button>
+            </div>
+            <div class="table">
+
+                <app-table [data]="dataAPL" [sortIndex]="sortIndex"></app-table>
+            </div>
+        </div>
+
+    </div>
+</div>

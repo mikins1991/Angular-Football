@@ -1,0 +1,29 @@
+// auroravts Colors
+@import "~@angular/material/theming";
+@import "google-material-colors";
+@include mat-core();
+
+$white: #fff;
+$black: #000;
+// $left-panel-primery: #061c31;
+$background-color-min: #39404d;
+$background-color-max: #161a24;
+$round-backgraund-min: #303641;
+$round-backgraund-max: #10131d;
+$round-backgraund: #242934;
+$text-active: #e9550c;
+
+$cart-color-min: #e9540c;
+$cart-color-max: #f49e75;
+
+$trigger-hover: #0c345a;
+
+$left-panel-primery: linear-gradient(125.42deg, #39404d 0%, #161a24 100%);
+$round-button-color: linear-gradient(
+  116.82deg,
+  ($round-backgraund-min) 0%,
+  ($round-backgraund-max) 100%
+);
+$background-track: #f1f1f1;
+$background-thumb: #888;
+$background-thumb-hover: #555;

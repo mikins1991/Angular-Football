@@ -1,12 +1,12 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-    selector: 'matches-component',
-    templateUrl: './matches.component.html',
-    styleUrls: [ './matches.component.scss' ],
+    selector: 'statistics-component',
+    templateUrl: './statistics.component.html',
+    styleUrls: [ './statistics.component.scss' ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MatchesComponent implements OnInit {
+export class StatisticsComponent implements OnInit {
     constructor() {}
 
     ngOnInit(): void {}

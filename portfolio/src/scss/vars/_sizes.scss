@@ -139,3 +139,20 @@ $round-button-size: 2rem;
         box-shadow: inset -4px -4px 10px #4c5463, inset 4px 4px 10px #191d28;
     }
 }
+@mixin develop-content {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+
+    &-img {
+        margin-top: 5rem;
+        height: 70%;
+        width: 100%;
+    }
+    &-title {
+        color: $white;
+        font-weight: $bold-font-weight;
+        text-align: center;
+        letter-spacing: 0.2rem;
+    }
+}

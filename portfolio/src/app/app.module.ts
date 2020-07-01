@@ -10,6 +10,7 @@ import { Top5PanelModule } from './shared/components/top5-panel/top5-panel.modul
 import { MatchesModule } from './pages/matches/matches.module';
 import { HttpClientModule } from '@angular/common/http';
 import { StandingsAllModule } from './pages/standings-all/standings-all.module';
+import { StatisticsModule } from './pages/statistics/statistics.module';
 
 @NgModule({
     declarations: [ AppComponent ],
@@ -22,8 +23,8 @@ import { StandingsAllModule } from './pages/standings-all/standings-all.module';
         MatIconModule,
         Top5PanelModule,
         MatchesModule,
-        // StandingsModule,
-        StandingsAllModule
+        StandingsAllModule,
+        StatisticsModule
     ],
     providers: [],
     bootstrap: [ AppComponent ]

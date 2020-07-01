@@ -31,7 +31,6 @@ export class StandingsAllComponent implements OnInit {
     }
 
     getDataAPL(data: Standing.ResponseData): void {
-        console.log('StandingsAllComponent -> getDataAPL -> data', data);
         this.dataAPL = data.body;
         this.statusLoadingAPL = data.ok;
         this.crdf.detectChanges();

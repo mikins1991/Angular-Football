@@ -1,12 +1,24 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Standing } from '../standings/interface/standing.interface';
+import { ApiFootbalService } from 'src/API/api.service';
+import { take } from 'rxjs/internal/operators/take';
 
 @Component({
-    selector: 'app-apl',
-    template: `<apl>gggg</apl>`,
+    selector: 'apl',
+    template: `<apl-component
+    [dataAPL]="dataAPL"
+    ></apl-component>`,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class APLContainer implements OnInit {
-    constructor() {}
+    @Input() dataAPL: Standing.DataLiga;
 
-    ngOnInit(): void {}
+    constructor(private apiService: ApiFootbalService) {}
+
+    getScorersAPL(data) {}
+    ngOnInit(): void {
+        this.apiService.getScorersTableAPL().pipe(take(1)).subscribe((data) => {
+            this.getScorersAPL(data);
+        });
+    }
 }

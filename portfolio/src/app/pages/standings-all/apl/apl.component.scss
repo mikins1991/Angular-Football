@@ -79,5 +79,9 @@ $hight-card-player: 20rem;
             height: 100%;
             width: 100%;
         }
+
+        .develop-content {
+            @include develop-content();
+        }
     }
 }

@@ -16,6 +16,7 @@ export class ApiFootbalService {
     getDataClubLiga(): Observable<any> {
         return this.httpClient.get<any>(this._urlClubsLiga);
     }
+
     // Token - api.football-data.org
     private headers = new HttpHeaders().set('X-Auth-Token', '4ad13c810fad400196e31b5eceb47efb');
 
@@ -71,6 +72,14 @@ export class ApiFootbalService {
     //http://api.football-data.org/v2/competitions/2002/teams
     getMatchTable(): Observable<any> {
         return this.httpClient.get<any>('http://api.football-data.org/v2/competitions/PL/scorers', {
+            headers: this.headers,
+            observe: 'response'
+        });
+    }
+
+    //scorers http://api.football-data.org/v2/competitions/PL/scorers
+    getScorersTableAPL(): Observable<any> {
+        return this.httpClient.get<any>('../assets/data/scorersAPL.json', {
             headers: this.headers,
             observe: 'response'
         });
